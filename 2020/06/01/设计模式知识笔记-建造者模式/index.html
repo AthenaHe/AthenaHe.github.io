@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="设计模式," />
 
 
 
@@ -83,15 +83,19 @@
 
 
 
-<meta name="description" content="这个一个菜鸟程序媛的小博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Athenahe的小天地">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="定义：建造者模式是将各种产品集中起来管理，用来创建复合对象(一个类有不同的属性)。  使用范围：    当创建复杂对象的算法时应该独立于该对象的组成部分以及他们的装配方式的时候。 当构造过程必须允许被构造的对象有不同的表示的时候。   角色：在这样的设计模式中，有以下几个角色：  – Product：抽象产品类。ConcreteBuilder创建该产品的内部表示并定义它的装配过程，包含定义组成部">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式知识笔记-建造者模式">
+<meta property="og:url" content="http://yoursite.com/2020/06/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Athenahe的小天地">
-<meta property="og:description" content="这个一个菜鸟程序媛的小博客">
+<meta property="og:description" content="定义：建造者模式是将各种产品集中起来管理，用来创建复合对象(一个类有不同的属性)。  使用范围：    当创建复杂对象的算法时应该独立于该对象的组成部分以及他们的装配方式的时候。 当构造过程必须允许被构造的对象有不同的表示的时候。   角色：在这样的设计模式中，有以下几个角色：  – Product：抽象产品类。ConcreteBuilder创建该产品的内部表示并定义它的装配过程，包含定义组成部">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200327103038769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-06-01T02:26:40.000Z">
+<meta property="article:modified_time" content="2020-06-01T02:35:33.400Z">
 <meta property="article:author" content="Athenahe">
-<meta property="article:tag" content="奋斗">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200327103038769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
 
 
 
@@ -121,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/06/01/设计模式知识笔记-建造者模式/"/>
 
 
 
 
 
-  <title>归档 | Athenahe的小天地</title>
+  <title>设计模式知识笔记-建造者模式 | Athenahe的小天地</title>
   
 
 
@@ -146,7 +150,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -284,486 +288,211 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 目前共计 32 篇日志。 继续努力。
-      </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Athenahe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Athenahe的小天地">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline">设计模式知识笔记-建造者模式</h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-01T10:26:40+08:00">
+                2020-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2020">2020</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/Java%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%9550%E9%A2%98/" itemprop="url">
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="name">Java基础算法50题</span>
+                <span class="post-meta-item-text">分类于</span>
               
-            </a>
-        
-      </h2>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:29:07+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
+                
+                
+              
+            </span>
+          
 
-    </header>
-  </article>
+          
+            
+          
 
+          
+          
 
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/linux%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0%E5%92%8C%E5%88%A0%E9%99%A4%E6%96%B0%E7%94%A8%E6%88%B7%E5%92%8C%E5%AF%86%E7%A0%81/" itemprop="url">
-              
-                <span itemprop="name">linux批量添加和删除新用户和密码</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:28:53+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/%E6%89%8B%E6%8A%8A%E6%89%8B%E8%BF%9B%E8%A1%8CCentoOS-6-5%E5%AE%89%E8%A3%85/" itemprop="url">
-              
-                <span itemprop="name">手把手进行CentoOS 6.5安装</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:28:41+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <ol>
+<li><p><strong>定义</strong>：建造者模式是将各种产品集中起来管理，用来创建复合对象(一个类有不同的属性)。</p>
+</li>
+<li><p><strong>使用范围</strong>：</p>
+</li>
+</ol>
+<ul>
+<li>当创建复杂对象的算法时应该独立于该对象的组成部分以及他们的装配方式的时候。</li>
+<li>当构造过程必须允许被构造的对象有不同的表示的时候。</li>
+</ul>
+<ol start="3">
+<li><strong>角色</strong>：<br>在这样的设计模式中，有以下几个角色：</li>
+</ol>
+<p>– Product：抽象产品类。ConcreteBuilder创建该产品的内部表示并定义它的装配过程，包含定义组成部件的类，包括将这些部件装配成最终产品的接口。<br>– Builder：为了规范产品的组建，创建一个产品对象的各个部件指定抽象接口。<br>– ConcreteBuilder：实现Builder的接口的具体实现类，以构造和装配该产品的各个部件，定义并明确它所创建的表示，并提供一个检索产品的接口。<br>– Director：构造一个使用Builder接口的对象，指导构建过程。</p>
+<p>下面采用电脑装机的例子来进行解释：<br>角色Product：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Test;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> hehuan</span></span><br><span class="line"><span class="comment">* <span class="doctag">@date</span> 2020年3月27日上午10:24:28</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Computer</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String CPU; <span class="comment">//cpu</span></span><br><span class="line">	<span class="keyword">private</span> String mainBoard; <span class="comment">//主板</span></span><br><span class="line">	<span class="keyword">private</span> String HD; <span class="comment">//硬盘</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getCPU</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> CPU;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCPU</span><span class="params">(String cPU)</span> </span>&#123;</span><br><span class="line">		CPU = cPU;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getMainBoard</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> mainBoard;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMainBoard</span><span class="params">(String mainBoard)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.mainBoard = mainBoard;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getHD</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> HD;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHD</span><span class="params">(String hD)</span> </span>&#123;</span><br><span class="line">		HD = hD;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Test;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> hehuan</span></span><br><span class="line"><span class="comment">* <span class="doctag">@date</span> 2020年3月27日上午9:46:55</span></span><br><span class="line"><span class="comment">*/</span><span class="comment">//角色product</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Macbook</span> <span class="keyword">extends</span> <span class="title">Computer</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Macbook</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"macbook开始装机。。。"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>角色Builder：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Test;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> hehuan</span></span><br><span class="line"><span class="comment">* <span class="doctag">@date</span> 2020年3月27日上午9:44:19</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//角色Builder</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ComputerBuilder</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">buildCPU</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">buildMainBoard</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">buildHD</span><span class="params">()</span></span>;	</span><br><span class="line">	<span class="function">Computer <span class="title">buildComputer</span><span class="params">()</span></span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>角色ConcreteBuilder：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Test;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> hehuan</span></span><br><span class="line"><span class="comment">* <span class="doctag">@date</span> 2020年3月27日上午9:49:38</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//角色ConcreteBuilder</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MacbookBuilder</span> <span class="keyword">implements</span> <span class="title">ComputerBuilder</span></span>&#123;</span><br><span class="line">	Computer computer;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MacbookBuilder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		computer = <span class="keyword">new</span> Macbook();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildCPU</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		computer.setCPU(<span class="string">"CPU装机..."</span>);		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildMainBoard</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		computer.setMainBoard(<span class="string">"主板装机..."</span>);		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildHD</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		computer.setHD(<span class="string">"硬盘装机..."</span>);		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Computer <span class="title">buildComputer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> computer;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>角色Director：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Test;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> hehuan</span></span><br><span class="line"><span class="comment">* <span class="doctag">@date</span> 2020年3月27日上午9:54:08</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//角色：Director</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ComputerDirector</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Computer <span class="title">constructComputer</span><span class="params">(ComputerBuilder computerBuilder)</span> </span>&#123;</span><br><span class="line">		computerBuilder.buildCPU();</span><br><span class="line">		computerBuilder.buildMainBoard();</span><br><span class="line">		computerBuilder.buildHD();</span><br><span class="line">		<span class="keyword">return</span> computerBuilder.buildComputer();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>进行测试：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Test;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BuilderPattern</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		ComputerDirector computerDirector = <span class="keyword">new</span> ComputerDirector();</span><br><span class="line">		MacbookBuilder macbookBuilder = <span class="keyword">new</span> MacbookBuilder();</span><br><span class="line">		Computer macbookComputer = computerDirector.constructComputer(macbookBuilder);</span><br><span class="line">		System.out.println(macbookComputer.getCPU());</span><br><span class="line">		System.out.println(macbookComputer.getMainBoard());</span><br><span class="line">		System.out.println(macbookComputer.getHD());</span><br><span class="line">		System.out.println(<span class="string">"装机完成。。。"</span>);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果：<br><img src="https://img-blog.csdnimg.cn/20200327103038769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>未完待续。。。<br>参考链接🔗：<br><a href="https://blog.csdn.net/jason0539/article/details/44992733" target="_blank" rel="noopener">java设计模式之建造者模式</a><br><a href="https://www.runoob.com/w3cnote/builder-pattern.html" target="_blank" rel="noopener">设计模式之建造者(Builder)模式</a></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/SpringBoot-JPA-mysql%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5-%E4%BA%8C-%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91/" itemprop="url">
-              
-                <span itemprop="name">SpringBoot+JPA+mysql实现简单的增删改查(二)---实战开发</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:28:26+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/SpringBoot-JPA-mysql%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5-%E4%B8%80-Spring-Boot%E5%85%A5%E9%97%A8/" itemprop="url">
-              
-                <span itemprop="name">SpringBoot+JPA+mysql实现简单的增删改查(一)---Spring Boot入门</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:28:10+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%E7%AC%94%E8%AE%B0-%E5%AD%97%E5%85%B8%E6%A0%91/" itemprop="url">
-              
-                <span itemprop="name">知识总结笔记-字典树</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:27:57+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/java%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%87%A0%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url">
-              
-                <span itemprop="name">java知识总结-常见的几种设计模式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:27:33+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" itemprop="url">
-              
-                <span itemprop="name">设计模式知识笔记-建造者模式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:26:40+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/Java%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0-Java%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0/" itemprop="url">
-              
-                <span itemprop="name">Java知识笔记--Java线程创建方式、线程池</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:26:19+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88JMM%EF%BC%89%E6%A6%82%E8%BF%B0/" itemprop="url">
-              
-                <span itemprop="name">Java内存模型（JMM）概述</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:24:51+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/Java%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0-%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B%E3%80%81%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" itemprop="url">
-              
-                <span itemprop="name">Java知识笔记--用户线程、守护线程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:23:54+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/java%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E9%80%A0%E6%88%90%E6%AD%BB%E9%94%81%E7%9A%84%E4%BB%A3%E7%A0%81/" itemprop="url">
-              
-                <span itemprop="name">java实现一个简单的造成死锁的代码</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:22:57+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">---------本文结束啦<i class="fa fa-paw"></i>感谢您的阅读，请多指教---------</div>
+    
+</div>
+
+
+  
+</div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 设计模式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/01/Java%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0-Java%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0/" rel="next" title="Java知识笔记--Java线程创建方式、线程池">
+                <i class="fa fa-chevron-left"></i> Java知识笔记--Java线程创建方式、线程池
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/01/java%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%87%A0%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="prev" title="java知识总结-常见的几种设计模式">
+                java知识总结-常见的几种设计模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">&gt;</a>
-  </nav>
+  </article>
 
 
 
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -771,6 +500,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1026,6 +759,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

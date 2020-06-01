@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32%E5%8F%AF%E7%88%B1.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16%E5%A5%B6%E8%8C%B6.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="运维," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Athenahe的小天地" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1. Hadoop namenode –format 出现问题 Hadoop namenode –format后,出现错误:未知的名称或服务解决办法: 1sudo vi &#x2F;etc&#x2F;hosts 修改 为 127.0.0.1 localhost 你的主机名我的主机名是hh,就在127.0.0.1的那行后面再加一个hh 2. 执行mapreduce程序出现的错误[2019-02-03">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop配置可能出现的问题及解决方案">
+<meta property="og:url" content="http://yoursite.com/2020/06/01/Hadoop%E9%85%8D%E7%BD%AE%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:site_name" content="Athenahe的小天地">
+<meta property="og:description" content="1. Hadoop namenode –format 出现问题 Hadoop namenode –format后,出现错误:未知的名称或服务解决办法: 1sudo vi &#x2F;etc&#x2F;hosts 修改 为 127.0.0.1 localhost 你的主机名我的主机名是hh,就在127.0.0.1的那行后面再加一个hh 2. 执行mapreduce程序出现的错误[2019-02-03">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/201902032337172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019030613154420.png">
+<meta property="article:published_time" content="2020-06-01T02:00:25.000Z">
+<meta property="article:modified_time" content="2020-06-01T02:39:28.739Z">
+<meta property="article:author" content="Athenahe">
+<meta property="article:tag" content="运维">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/201902032337172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/06/01/Hadoop配置可能出现的问题及解决方案/"/>
+
+
+
+
+
+  <title>Hadoop配置可能出现的问题及解决方案 | Athenahe的小天地</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Athenahe的小天地</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">要每天进步一点点呀</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/01/Hadoop%E9%85%8D%E7%BD%AE%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Athenahe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Athenahe的小天地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hadoop配置可能出现的问题及解决方案</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-01T10:00:25+08:00">
+                2020-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-Hadoop-namenode-–format-出现问题"><a href="#1-Hadoop-namenode-–format-出现问题" class="headerlink" title="1. Hadoop namenode –format 出现问题"></a>1. Hadoop namenode –format 出现问题</h1><p> Hadoop namenode –format后,出现错误:<strong>未知的名称或服务</strong><br><img src="https://img-blog.csdnimg.cn/201902032337172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="namenode格式化出现的问题"><br>解决办法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi &#x2F;etc&#x2F;hosts</span><br></pre></td></tr></table></figure>
+<p>修改 为 127.0.0.1 localhost 你的主机名<br>我的主机名是hh,就在127.0.0.1的那行后面再加一个hh</p>
+<h1 id="2-执行mapreduce程序出现的错误"><a href="#2-执行mapreduce程序出现的错误" class="headerlink" title="2. 执行mapreduce程序出现的错误"></a>2. 执行mapreduce程序出现的错误</h1><p><code>[2019-02-03 11:55:40.144]Container exited with a non-zero exit code 1. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+Last 4096 bytes of stderr :
+错误: 找不到或无法加载主类 org.apache.hadoop.mapreduce.v2.app.MRAppMaster</code><br><strong>解决办法:</strong><br>编辑 Hadoop 安装目录下 etc/hadoop/mapred-site.xml 文件，在  <configuration> 标签和 </configuration> 标签之间添加如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;mapreduce.application.classpath&lt;&#x2F;name&gt;</span><br><span class="line">   &lt;value&gt;&#x2F;opt&#x2F;module&#x2F;hadoop-3.2.0&#x2F;share&#x2F;hadoop&#x2F;mapreduce&#x2F;*,</span><br><span class="line">  &#x2F;opt&#x2F;module&#x2F;hadoop-3.2.0&#x2F;share&#x2F;hadoop&#x2F;mapreduce&#x2F;lib&#x2F;*&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br></pre></td></tr></table></figure>
+<p>其中/opt/module/hadoop-3.2.0为我的hadoop安装路径,必须要写绝对路径~</p>
+<h1 id="3-namenode进入安全模式"><a href="#3-namenode进入安全模式" class="headerlink" title="3. namenode进入安全模式"></a>3. namenode进入安全模式</h1><p><code>2019-02-03 17:26:09,459 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+rm: Cannot delete /user/hehuan/mapreduce/wordcount/output. Name node is in safe mode.</code><br>解决办法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfsadmin -safemode leave</span><br></pre></td></tr></table></figure>
+<h1 id="4，secondarynamenode启动不了"><a href="#4，secondarynamenode启动不了" class="headerlink" title="4，secondarynamenode启动不了"></a>4，secondarynamenode启动不了</h1><p>启动集群的时候其他节点都启动了，只有secondarynamenode没有启动<br>解决：<br>输入命令<code>hdfs secondarynamenode</code>查看日志信息，有没有报错的信息，如果有，看看是什么，然后再解决。<br><img src="https://img-blog.csdnimg.cn/2019030613154420.png" alt="在这里插入图片描述"></p>
+<h1 id="5-无法加载主类"><a href="#5-无法加载主类" class="headerlink" title="5,无法加载主类"></a>5,无法加载主类</h1><p><code>Container exited with a non-zero exit code 1. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+Last 4096 bytes of stderr :
+错误: 找不到或无法加载主类 org.apache.hadoop.mapreduce.v2.app.MRAppMaster</code><br>解决：<br>在mapred-site.xml中添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.framework.name&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;value&gt;yarn&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.app.mapreduce.am.env&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;value&gt;HADOOP_MAPRED_HOME&#x3D;&#x2F;opt&#x2F;module&#x2F;hadoop-3.2.0&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.map.env&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;value&gt;HADOOP_MAPRED_HOME&#x3D;&#x2F;opt&#x2F;module&#x2F;hadoop-3.2.0&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.reduce.env&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;value&gt;HADOOP_MAPRED_HOME&#x3D;&#x2F;opt&#x2F;module&#x2F;hadoop-3.2.0&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br></pre></td></tr></table></figure>
+<p>其中<code>/opt/module/hadoop-3.2.0</code>是我的hadoop安装路径</p>
+<h1 id="6-RECEIVED-SIGNAL-15-SIGTERM"><a href="#6-RECEIVED-SIGNAL-15-SIGTERM" class="headerlink" title="6.RECEIVED SIGNAL 15: SIGTERM"></a>6.RECEIVED SIGNAL 15: SIGTERM</h1><p><code>ERROR org.apache.hadoop.yarn.server.resourcemanager.ResourceManager: RECEIVED SIGNAL 15: SIGTERM
+ ERROR org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: ExpiredTokenRemover received java.lang.InterruptedException: sleep interrupted</code><br> 启动集群没有问题，但是执行mapreduce的时候，resourcemanager节点所在的服务器总是挂掉，（是这个服务器上所有的节点都挂掉），主要是刚开始没有发现这个问题，一直看到的是另外一台服务器上的问题 <code>2019-06-16 02:21:09,197 ERROR org.apache.hadoop.yarn.YarnUncaughtExceptionHandler: Thread Thread[Node Status Updater,5,main] threw an Exception.
+org.apache.hadoop.yarn.exceptions.YarnRuntimeException: java.net.ConnectException: Call From leon-webserver/192.168.1.101 to lenovo:8031 failed on connection exception: java.net.ConnectException: 拒绝连接; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused</code><br>后来才知道，拒绝连接的原因是因为resourcemanager节点所在的服务器挂掉了。本人实在太菜了，猜测可能是节点运行出现内存不足或者某个节点上任务数目太多，资源利用率太高导致服务器直接宕机。所以，我就把Yarn参数优化(Fair Scheduler版本)全部设置了一下，将值改到最大。yarn-site.xml的配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;!-- reducer获取数据的方式 --&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;yarn.nodemanager.aux-services&lt;&#x2F;name&gt;</span><br><span class="line">	&lt;value&gt;mapreduce_shuffle&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;!-- 指定YARN的ResourceManager的地址 --&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;yarn.resourcemanager.hostname&lt;&#x2F;name&gt;</span><br><span class="line">	&lt;value&gt;192.168.1.100&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;property&gt;  </span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.address&lt;&#x2F;name&gt;  </span><br><span class="line">    &lt;value&gt;192.168.1.100:8032&lt;&#x2F;value&gt;  </span><br><span class="line">  &lt;&#x2F;property&gt;</span><br><span class="line">  &lt;property&gt;  </span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.admin.address&lt;&#x2F;name&gt;  </span><br><span class="line">    &lt;value&gt;192.168.1.100:8033&lt;&#x2F;value&gt;  </span><br><span class="line">  &lt;&#x2F;property&gt;</span><br><span class="line">  &lt;property&gt;  </span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;&#x2F;name&gt;  </span><br><span class="line">    &lt;value&gt;192.168.1.100:8030&lt;&#x2F;value&gt;  </span><br><span class="line">  &lt;&#x2F;property&gt;  </span><br><span class="line">  &lt;property&gt;  </span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;&#x2F;name&gt;  </span><br><span class="line">    &lt;value&gt;192.168.1.100:8031&lt;&#x2F;value&gt;  </span><br><span class="line">  &lt;&#x2F;property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.scheduler.fair.max.assign&lt;&#x2F;name&gt;</span><br><span class="line">        &lt;value&gt;1&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;property&gt; </span><br><span class="line">&lt;name&gt;yarn.nodemanager.resource.cpu-vcores&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;30&lt;&#x2F;value&gt; </span><br><span class="line">&lt;discription&gt;每个nodemanager可分配的cpu总核数&lt;&#x2F;discription&gt; </span><br><span class="line">&lt;&#x2F;property&gt; </span><br><span class="line">&lt;property&gt; </span><br><span class="line">&lt;name&gt;yarn.nodemanager.resource.memory-mb&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;122880&lt;&#x2F;value&gt; </span><br><span class="line">&lt;discription&gt;每个nodemanager可分配的内存总量&lt;&#x2F;discription&gt; </span><br><span class="line">&lt;&#x2F;property&gt; </span><br><span class="line">&lt;property&gt; </span><br><span class="line">&lt;name&gt;yarn.app.mapreduce.am.resource.cpu-vcores&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;1&lt;&#x2F;value&gt; </span><br><span class="line">&lt;&#x2F;property&gt; </span><br><span class="line">&lt;property&gt; </span><br><span class="line">&lt;name&gt;yarn.app.mapreduce.am.resource.mb&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;4096&lt;&#x2F;value&gt; </span><br><span class="line">&lt;discription&gt;ApplicationMaster的占用的内存大小&lt;&#x2F;discription&gt; </span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;property&gt; </span><br><span class="line">&lt;name&gt;yarn.scheduler.maximum-allocation-mb&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;16384&lt;&#x2F;value&gt; </span><br><span class="line">&lt;discription&gt;单个任务可申请最大内存，默认8192MB&lt;&#x2F;discription&gt; </span><br><span class="line">&lt;&#x2F;property&gt; </span><br><span class="line">&lt;property&gt; </span><br><span class="line">&lt;name&gt;yarn.scheduler.maximum-allocation-vcores&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;4&lt;&#x2F;value&gt; </span><br><span class="line">&lt;discription&gt;单个任务可申请的最多虚拟CPU个数&lt;&#x2F;discription&gt; </span><br><span class="line">&lt;&#x2F;property&gt; </span><br><span class="line">&lt;property&gt; </span><br><span class="line">&lt;name&gt;yarn.scheduler.minimum-allocation-vcores&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;1&lt;&#x2F;value&gt; </span><br><span class="line">&lt;discription&gt;单个任务可申请的最小虚拟CPU个数&lt;&#x2F;discription&gt; </span><br><span class="line">&lt;&#x2F;property&gt; </span><br><span class="line">&lt;property&gt; </span><br><span class="line">&lt;name&gt;yarn.scheduler.minimum-allocation-mb&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;4096&lt;&#x2F;value&gt; </span><br><span class="line">&lt;discription&gt;container最小可申请的内存&lt;&#x2F;discription&gt; </span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line"> &lt;property&gt; </span><br><span class="line">&lt;name&gt;mapreduce.map.memory.mb&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;4096&lt;&#x2F;value&gt; </span><br><span class="line">&lt;discription&gt;map的内存大小&lt;&#x2F;discription&gt; </span><br><span class="line">&lt;&#x2F;property&gt; </span><br><span class="line">&lt;property&gt; </span><br><span class="line">&lt;name&gt;mapreduce.map.java.opts&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;-Xmx3072M&lt;&#x2F;value&gt; </span><br><span class="line">&lt;discription&gt;用户设定的map&#x2F;reduce阶段申请的container的JVM参数。最大堆设定要比申请的内存少一些，用于JVM的非堆部分使用0.80-0.85建议&lt;&#x2F;discription&gt; </span><br><span class="line">&lt;&#x2F;property&gt; </span><br><span class="line">&lt;property&gt; </span><br><span class="line">&lt;name&gt;mapreduce.reduce.memory.mb&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;8192&lt;&#x2F;value&gt; </span><br><span class="line">&lt;&#x2F;property&gt; </span><br><span class="line">&lt;property&gt; </span><br><span class="line">&lt;name&gt;mapreduce.reduce.java.opts&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;-Xmx6144M&lt;&#x2F;value&gt; </span><br><span class="line">&lt;&#x2F;property&gt; </span><br><span class="line">&lt;property&gt; </span><br><span class="line">&lt;name&gt;yarn.scheduler.fair.assignmultiple&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;true&lt;&#x2F;value&gt; </span><br><span class="line">&lt;discription&gt;是否允许NodeManager一次分配多个容器&lt;&#x2F;discription&gt; </span><br><span class="line">&lt;&#x2F;property&gt; </span><br><span class="line">&lt;property&gt; </span><br><span class="line">&lt;name&gt;yarn.scheduler.fair.max.assign&lt;&#x2F;name&gt; </span><br><span class="line">&lt;value&gt;20&lt;&#x2F;value&gt; </span><br><span class="line">&lt;discription&gt;如果允许一次分配多个,一次最多可分配多少个,这里按照一个最小分配yarn.scheduler.minimum-allocation-mb4gb来计算总共内存120&#x2F;4&#x3D;30给20即可&lt;&#x2F;discription&gt; </span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;&#x2F;name&gt;</span><br><span class="line">  &lt;value&gt;false&lt;&#x2F;value&gt;</span><br><span class="line">  &lt;description&gt;Whether virtual memory limits will be enforced for containers.&lt;&#x2F;description&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">--&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;yarn.nodemanager.vmem-pmem-ratio&lt;&#x2F;name&gt;</span><br><span class="line">  &lt;value&gt;5&lt;&#x2F;value&gt;</span><br><span class="line">  &lt;description&gt;Ratio between virtual memory to physical memory when setting memory limits for containers. Container allocations are expressed in terms of physical memory, and virtual memory usage is allowed to exceed this allocation by this ratio.&lt;&#x2F;description&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>然后就没有出现服务器节点挂掉了。</p>
+<p>有知道具体是哪个配置起作用了，可以告诉我一下。谢谢</p>
+<p> 参考：<a href="https://blog.csdn.net/leone911/article/details/51605172" target="_blank" rel="noopener">Yarn参数优化(Fair Scheduler版本)</a></p>
+<h1 id="7-Exception-message-bin-bash-第-0-行-fg-无任务控制"><a href="#7-Exception-message-bin-bash-第-0-行-fg-无任务控制" class="headerlink" title="7 Exception message: /bin/bash: 第 0 行: fg: 无任务控制"></a>7 Exception message: /bin/bash: 第 0 行: fg: 无任务控制</h1><figure class="highlight plain"><figcaption><span>application_1559388197413_0002 failed 2 times due to AM Container for appattempt_1559388197413_0002_000002 exited with exitCode: 1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">For more detailed output, check application tracking page:http:&#x2F;&#x2F;lenovo:8088&#x2F;cluster&#x2F;app&#x2F;application_1559388197413_0002Then, click on links to logs of each attempt.</span><br><span class="line">Diagnostics: Exception from container-launch.</span><br><span class="line">Container id: container_1559388197413_0002_02_000001</span><br><span class="line">Exit code: 1</span><br><span class="line">Exception message: &#x2F;bin&#x2F;bash: 第 0 行: fg: 无任务控制</span><br><span class="line">Stack trace: ExitCodeException exitCode&#x3D;1: &#x2F;bin&#x2F;bash: 第 0 行: fg: 无任务控制</span><br><span class="line">at org.apache.hadoop.util.Shell.runCommand(Shell.java:545)</span><br><span class="line">at org.apache.hadoop.util.Shell.run(Shell.java:456)</span><br><span class="line">at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:722)</span><br><span class="line">at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.launchContainer(DefaultContainerExecutor.java:212)</span><br><span class="line">at org.apache.hadoop.yarn.server.nodemanager.containermanager.launcher.ContainerLaunch.call(ContainerLaunch.java:302)</span><br><span class="line">at org.apache.hadoop.yarn.server.nodemanager.containermanager.launcher.ContainerLaunch.call(ContainerLaunch.java:82)</span><br><span class="line">at java.util.concurrent.FutureTask.run(FutureTask.java:266)</span><br><span class="line">at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)</span><br><span class="line">at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)</span><br><span class="line">at java.lang.Thread.run(Thread.java:748)</span><br><span class="line">Container exited with a non-zero exit code 1</span><br><span class="line">Failing this attempt. Failing the application.</span><br></pre></td></tr></table></figure>
+<p>出错原因：因为在windows系统中无法使用#!/bin/bash 平台兼容性的问题<br>解决：跨平台提交的参数<br>//：如果要从windows系统中运行这个job提交客户端的程序，则需要加这个跨平台提交的参数<br>        configure.set(“mapreduce.app-submission.cross-platform”,”true”);//代码中写上这个配置</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">---------本文结束啦<i class="fa fa-paw"></i>感谢您的阅读，请多指教---------</div>
+    
+</div>
+
+
+  
+</div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag"><i class="fa fa-tag"></i> 运维</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/01/%E6%95%99%E4%BD%A0%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%EF%BC%9Amac%E7%94%B5%E8%84%91%E5%8D%B8%E8%BD%BD%E5%8F%8C%E7%B3%BB%E7%BB%9F%E4%B8%ADBoot-camp%E5%8A%A9%E7%90%86%E5%87%BA%E7%8E%B0%E2%80%9C%E5%90%AF%E5%8A%A8%E7%A3%81%E7%9B%98%E4%B8%8D%E8%83%BD%E8%A2%AB%E5%88%86%E5%8C%BA%E6%88%96%E6%81%A2%E5%A4%8D%E6%88%90%E5%8D%95%E4%B8%AA%E5%88%86%E5%8C%BA/" rel="next" title="教你解决问题：mac电脑卸载双系统中Boot camp助理出现“启动磁盘不能被分区或恢复成单个分区”">
+                <i class="fa fa-chevron-left"></i> 教你解决问题：mac电脑卸载双系统中Boot camp助理出现“启动磁盘不能被分区或恢复成单个分区”
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/01/%E4%B8%80%E6%AD%A5%E6%AD%A5%E6%95%99%E5%AD%A6Hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2/" rel="prev" title="一步步教学Hadoop完全分布式部署">
+                一步步教学Hadoop完全分布式部署 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=864711417&auto=1&height=66"></iframe>
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Athenahe" />
+            
+              <p class="site-author-name" itemprop="name">Athenahe</p>
+              <p class="site-description motion-element" itemprop="description">这个一个菜鸟程序媛的小博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/AthenaHe" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/weixin_34566605" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-crosshairs"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Hadoop-namenode-–format-出现问题"><span class="nav-number">1.</span> <span class="nav-text">1. Hadoop namenode –format 出现问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-执行mapreduce程序出现的错误"><span class="nav-number">2.</span> <span class="nav-text">2. 执行mapreduce程序出现的错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-namenode进入安全模式"><span class="nav-number">3.</span> <span class="nav-text">3. namenode进入安全模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4，secondarynamenode启动不了"><span class="nav-number">4.</span> <span class="nav-text">4，secondarynamenode启动不了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-无法加载主类"><span class="nav-number">5.</span> <span class="nav-text">5,无法加载主类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-RECEIVED-SIGNAL-15-SIGTERM"><span class="nav-number">6.</span> <span class="nav-text">6.RECEIVED SIGNAL 15: SIGTERM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-Exception-message-bin-bash-第-0-行-fg-无任务控制"><span class="nav-number">7.</span> <span class="nav-text">7 Exception message: &#x2F;bin&#x2F;bash: 第 0 行: fg: 无任务控制</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-[object Object]"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AthenaHe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

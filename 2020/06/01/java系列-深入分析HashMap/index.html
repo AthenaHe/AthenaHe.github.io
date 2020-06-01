@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="算法," />
+  <meta name="keywords" content="java," />
 
 
 
@@ -83,24 +83,30 @@
 
 
 
-<meta name="description" content="一、TF-IDF算法介绍 TF-IDF(term frequency–inverse document frequency，词频-逆向文件频率)是一种用于信息检索（information retrieval）与文本挖掘（text mining）的常用加权技术.  TF-IDF是一种统计方法，用以评估字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比">
+<meta name="description" content="重要！！！ 前言知识hashcode：哈希码不唯一，它是一种算法尽量让同一个类的不同对象拥有不同的哈希码，但是可能也会出现相同的情况。 一、HashMap一些概念 HashMap是一个散列表，它存储的是键值对（key-value）映射。 HashMap继承AbstractMap类，实现了Map、Cloneable、java.io.Serializable接口。用一张图解释一下。 HashMap的实">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TF-IDF算法及分析">
-<meta property="og:url" content="http://yoursite.com/2020/05/30/TF-IDF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%88%86%E6%9E%90/index.html">
+<meta property="og:title" content="java系列-深入分析HashMap">
+<meta property="og:url" content="http://yoursite.com/2020/06/01/java%E7%B3%BB%E5%88%97-%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90HashMap/index.html">
 <meta property="og:site_name" content="Athenahe的小天地">
-<meta property="og:description" content="一、TF-IDF算法介绍 TF-IDF(term frequency–inverse document frequency，词频-逆向文件频率)是一种用于信息检索（information retrieval）与文本挖掘（text mining）的常用加权技术.  TF-IDF是一种统计方法，用以评估字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020052009103531.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020052009100163.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200520090842228.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200520090718258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200520090545198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200520090448619.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-05-30T02:45:04.000Z">
-<meta property="article:modified_time" content="2020-06-01T01:51:51.191Z">
+<meta property="og:description" content="重要！！！ 前言知识hashcode：哈希码不唯一，它是一种算法尽量让同一个类的不同对象拥有不同的哈希码，但是可能也会出现相同的情况。 一、HashMap一些概念 HashMap是一个散列表，它存储的是键值对（key-value）映射。 HashMap继承AbstractMap类，实现了Map、Cloneable、java.io.Serializable接口。用一张图解释一下。 HashMap的实">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200326171417789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200326172424303.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200326183918503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020032820033517.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200328213506442.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200328211259717.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200328203704647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200326184405514.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200328214146465.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200328215241749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200328215436336.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200328215610365.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-06-01T01:49:14.000Z">
+<meta property="article:modified_time" content="2020-06-01T01:50:01.175Z">
 <meta property="article:author" content="Athenahe">
-<meta property="article:tag" content="算法">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2020052009103531.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200326171417789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
 
 
 
@@ -130,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/30/TF-IDF原理及分析/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/06/01/java系列-深入分析HashMap/"/>
 
 
 
 
 
-  <title>TF-IDF算法及分析 | Athenahe的小天地</title>
+  <title>java系列-深入分析HashMap | Athenahe的小天地</title>
   
 
 
@@ -307,7 +313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/30/TF-IDF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%88%86%E6%9E%90/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/01/java%E7%B3%BB%E5%88%97-%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90HashMap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Athenahe">
@@ -324,7 +330,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">TF-IDF算法及分析</h1>
+          <h1 class="post-title" itemprop="name headline">java系列-深入分析HashMap</h1>
         
 
         <div class="post-meta">
@@ -336,8 +342,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-30T10:45:04+08:00">
-                2020-05-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-01T09:49:14+08:00">
+                2020-06-01
               </time>
             
 
@@ -396,40 +402,80 @@
       
 
       
-        <h1 id="一、TF-IDF算法介绍"><a href="#一、TF-IDF算法介绍" class="headerlink" title="一、TF-IDF算法介绍"></a>一、TF-IDF算法介绍</h1><blockquote>
-<p>TF-IDF(term frequency–inverse document frequency，词频-逆向文件频率)是一种用于信息检索（information retrieval）与文本挖掘（text mining）的常用加权技术.</p>
-</blockquote>
-<p>TF-IDF是一种统计方法，用以评估字词对于一个文件集或一个语料库中的其中一份文件的重要程度。<strong>字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降</strong>。</p>
-<p><strong>TF-IDF主要思想</strong>：如果一个单词在该文章中出现的频率(TF)高，并且在其它文章中出现频率很低，则认为该单词具有很好的区分能力，适合用来进行分类。</p>
-<p>1）==词频==(Term Frequency)表示单词在该文章中出现的频率。通常归一化处理，以防止它偏向长的文件。</p>
-<p>词频(TF) = 单词在该文章出现次数/当前文章总单词数<br><img src="https://img-blog.csdnimg.cn/2020052009103531.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">2）==反问档频率==(Inverse Document Frequency)表示某一个特定单词IDF可以由总文章数除以包含该单词的文章数，再将得到的商取对数得到。如果包含该单词的文章越少，则IDF越大，则表明该单词具有很好的文章区分能力。</p>
-<p>反问档频率(IDF) = log(语料库中文章总数/(包含该单词的文章数+1))<br><img src="https://img-blog.csdnimg.cn/2020052009100163.png" alt="在这里插入图片描述"> </p>
-<blockquote>
-<p>question：为什么分母+1？<br>answer：分母之所以+1是为了避免分母为0.<br>其实最简单的IDF公式应该是log(语料库中文章总数/(包含该单词的文章数))，但是在一些特殊的时候会出现问题，比如一些生僻词在语料库中没有，这样分母会为0，IDF就没有意义了，为了避免这种情况发生，我们需要对IDF进行一些平滑操作，使得语料库中没有出现的生僻词也可以得到一个合适的IDF值。平滑的方式有很多种，上面的将分母+1是最简单的一种方式，还有一种比较常见的IDF平滑公式是IDF=log(语料库中文章总数+1/(包含该单词的文章数+1)+1)</p>
-</blockquote>
-<p>==TF-IDF与一个词在文档中的出现次数成正比， 与包含该词的文档数成反比。==</p>
-<p>有了IDF的定义，我们就可以计算某一个词语的TF-IDF值:<br>TF-IDF(x)=TF(x)<em>IDF(x),其中TF(x)指单词x在当前文章中的词频。<br><img src="https://img-blog.csdnimg.cn/20200520090842228.png" alt="在这里插入图片描述"><br>*</em>TF-IDF算法的优点**：简单快速，结果比较符合实际情况。</p>
-<p><strong>TF-IDF算法的缺点</strong>：单纯以”词频”衡量一个词的重要性，不够全面，有时重要的词可能出现次数并不多。而且，这种算法无法体现词的位置信息，出现位置靠前的词与出现位置靠后的词，都被视为重要性相同，这是不正确的。（一种解决方法是，对全文的第一段和每一段的第一句话，给予较大的权重。）</p>
-<p><strong>TF-IDF的应用场景</strong>：TF-IDF算法可用来提取文档的关键词，关键词在文本聚类、文本分类、文献检索、自动文摘等方面有着重要应用。</p>
-<h1 id="二、举例说明"><a href="#二、举例说明" class="headerlink" title="二、举例说明"></a>二、举例说明</h1><p>以《中国的蜜蜂养殖》为例，假定该文长度为1000个词，”中国”、”蜜蜂”、”养殖”各出现20次，则这三个词的”词频”（TF）都为0.02。然后，搜索Google发现，包含”的”字的网页共有250亿张，假定这就是中文网页总数。包含”中国”的网页共有62.3亿张，包含”蜜蜂”的网页为0.484亿张，包含”养殖”的网页为0.973亿张。则它们的逆文档频率（IDF）和TF-IDF如下：<br><img src="https://img-blog.csdnimg.cn/20200520090718258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">从上表可见，”蜜蜂”的TF-IDF值最高，”养殖”其次，”中国”最低。（如果还计算”的”字的TF-IDF，那将是一个极其接近0的值。）所以，如果只选择一个词，”蜜蜂”就是这篇文章的关键词。</p>
-<h1 id="三、案例实战：基于TF-IDF的关键词提取"><a href="#三、案例实战：基于TF-IDF的关键词提取" class="headerlink" title="三、案例实战：基于TF-IDF的关键词提取"></a>三、案例实战：基于TF-IDF的关键词提取</h1><h3 id="1-基于python-mapreduce的TF-IDF计算"><a href="#1-基于python-mapreduce的TF-IDF计算" class="headerlink" title="1. 基于python mapreduce的TF-IDF计算"></a>1. 基于python mapreduce的TF-IDF计算</h3><p>开发步骤如下：</p>
-<ul>
-<li>Step 1：原始数据预处理</li>
-<li>Step 2：产生IDF词表</li>
-<li>Step 3：进行TF-IDF计算，计算单词在文章中的权重</li>
+        <p><strong>重要！！！</strong></p>
+<h1 id="前言知识"><a href="#前言知识" class="headerlink" title="前言知识"></a>前言知识</h1><p>hashcode：哈希码不唯一，它是一种算法尽量让同一个类的不同对象拥有不同的哈希码，但是可能也会出现相同的情况。</p>
+<h1 id="一、HashMap一些概念"><a href="#一、HashMap一些概念" class="headerlink" title="一、HashMap一些概念"></a>一、HashMap一些概念</h1><ul>
+<li>HashMap是一个散列表，它存储的是键值对（key-value）映射。</li>
+<li>HashMap继承AbstractMap类，实现了Map、Cloneable、java.io.Serializable接口。用一张图解释一下。<br><img src="https://img-blog.csdnimg.cn/20200326171417789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>HashMap的实现是不同步的，也就是说不是线程安全的</li>
+<li>HashMap的key唯一，value值可以重复。其中key，value都可以为null。</li>
+<li>HashMap的映射不是有序的，也就是说你做了一堆put操作后，遍历打印出来的数据顺序可能和你put的顺序不一致。</li>
 </ul>
-<p>1）将所有数据文件内容汇总到一个数据文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"># Step1 原始数据预处理</span><br><span class="line">import os</span><br><span class="line">import sys</span><br><span class="line">import math</span><br><span class="line"></span><br><span class="line">file_path_dir &#x3D; &#39;..&#x2F;DataSet&#x2F;it.seg.cln&#39;</span><br><span class="line">raw_path &#x3D; &#39;.&#x2F;raw.data&#39;</span><br><span class="line">idf_path &#x3D; &#39;.&#x2F;idf.data&#39;</span><br><span class="line"></span><br><span class="line">##读文件操作</span><br><span class="line">def read_file(f):</span><br><span class="line">    fd &#x3D; open(f, &#39;r&#39;, encoding&#x3D;&#39;utf-8&#39;)</span><br><span class="line">    return fd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">file_raw_out &#x3D; open(raw_path, &#39;w&#39;, encoding&#x3D;&#39;utf-8&#39;)</span><br><span class="line"></span><br><span class="line"># 遍历整个原始数据目录，将零散的文章整合到一个文件中，便于后续数据处理</span><br><span class="line">file_name &#x3D; 0</span><br><span class="line">for fd in os.listdir(file_path_dir):</span><br><span class="line">    file_path &#x3D; file_path_dir + &#39;&#x2F;&#39; + fd #文件路径</span><br><span class="line">    content_list &#x3D; []</span><br><span class="line"></span><br><span class="line">    file_fd &#x3D; read_file(file_path)</span><br><span class="line">    for line in file_fd:</span><br><span class="line">        content_list.append(line.strip())</span><br><span class="line">#&#39; &#39;.join(content_list)</span><br><span class="line">    content &#x3D; &#39;\t&#39;.join([str(file_name),&#39;&#39;.join (content_list)]) + &#39;\n&#39;</span><br><span class="line">    #print (content)</span><br><span class="line">    #print(type(&#39;\t&#39;.join(content_list)))</span><br><span class="line">    file_raw_out.writelines(content)</span><br><span class="line"></span><br><span class="line">    file_name +&#x3D; 1</span><br><span class="line">print(&quot;文件个数：&quot;,file_name)</span><br></pre></td></tr></table></figure>
-<p>raw.data(汇总数据文件，键值对格式)的内容为:<br><img src="https://img-blog.csdnimg.cn/20200520090545198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>2) 对所有文章按照一定规律进行切分(map过程)<br>对文章进行统计，求出IDF(reduce过程)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">#step2 产生产生IDF词表</span><br><span class="line">docs_count &#x3D; file_name</span><br><span class="line">wc_tulist &#x3D; []</span><br><span class="line">with open(raw_path, &#39;r&#39;, encoding&#x3D;&#39;utf-8&#39;) as fd:</span><br><span class="line">    for line in fd:</span><br><span class="line">        #遍历每一篇文章，文章&#x3D;line</span><br><span class="line">        ss &#x3D; line.strip().split(&#39;\t&#39;)</span><br><span class="line">        #如果分割每篇文章后的长度不是2，则表示这篇文章格式不是我们需要的，我们要的是 【序号\t内容】格式</span><br><span class="line">        if len(ss)!&#x3D;2:</span><br><span class="line">            continue</span><br><span class="line">            </span><br><span class="line">        #对文章解析，区分文章序号和文章内容 </span><br><span class="line">        file_number,file_content &#x3D; ss</span><br><span class="line">        #对文章的内容进行切词，内容已经按照空格切好词了，所以按空格做split切割</span><br><span class="line">        word_list &#x3D; file_content.strip().split(&#39; &#39;)</span><br><span class="line">        #print(&quot;word_list:&quot;,word_list)</span><br><span class="line">        </span><br><span class="line">        #去重操作，对于IDF，只需要关注词在文章中是否出现，不关心出现次数</span><br><span class="line">        word_set &#x3D; set(word_list)</span><br><span class="line">        #print(&quot;word_set:&quot;,word_set)</span><br><span class="line">        </span><br><span class="line">        # 对于每个关键词，打一个标记“1”，来标识该次出现过</span><br><span class="line">        for word in word_set:</span><br><span class="line">            wc_tulist.append((word,&#39;1&#39;))</span><br><span class="line">            #print(&quot;wc_tulist:&quot;,wc_tulist)</span><br><span class="line">            </span><br><span class="line"> #将内容输出到指定文件中.&#x2F;idf.data</span><br><span class="line">file_idf_out &#x3D; open(idf_path,&#39;w&#39;,encoding&#x3D;&#39;utf-8&#39;)</span><br><span class="line"></span><br><span class="line">#按照词的字典序进行排序</span><br><span class="line">wc_sort_tulist &#x3D; sorted(wc_tulist,key&#x3D;lambda x: x[0])</span><br><span class="line">#print(wc_sort_tulist)</span><br><span class="line">current_word &#x3D; None</span><br><span class="line">sum &#x3D; 0</span><br><span class="line">for tu in wc_sort_tulist:  </span><br><span class="line">    word, val &#x3D; tu</span><br><span class="line"></span><br><span class="line">    if current_word &#x3D;&#x3D; None:</span><br><span class="line">        current_word &#x3D; word</span><br><span class="line"></span><br><span class="line">    if current_word !&#x3D; word:</span><br><span class="line">        # 通过idf计算公式，得到每个关键词的idf score</span><br><span class="line">        idf &#x3D; math.log(float(docs_count) &#x2F; (float(sum) + 1.0))</span><br><span class="line">        content &#x3D; &#39;\t&#39;.join([current_word, str(idf)]) + &#39;\n&#39;</span><br><span class="line">        file_idf_out.write(content)</span><br><span class="line">        current_word &#x3D; word</span><br><span class="line">        sum &#x3D; 0</span><br><span class="line"></span><br><span class="line">    sum +&#x3D; int(val)</span><br><span class="line"></span><br><span class="line">#反问档频率(IDF) &#x3D; log(语料库中文章总数&#x2F;(包含该单词的文章数+1))</span><br><span class="line">idf &#x3D; math.log(float(docs_count) &#x2F; (float(sum) + 1.0))</span><br><span class="line"></span><br><span class="line"># content格式是【words\t0.1212\n】</span><br><span class="line">content &#x3D; &#39;\t&#39;.join([current_word, str(idf)]) + &#39;\n&#39;</span><br><span class="line">file_idf_out.write(content)</span><br><span class="line">#print(content)</span><br><span class="line">file_idf_out.close()</span><br></pre></td></tr></table></figure>
-<p>idf.data内容：<br><img src="https://img-blog.csdnimg.cn/20200520090448619.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>3) 求出最终的TF-IDF</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"># Step3 计算TF-IDF来提取文章中的关键词(文章单词的权重)</span><br><span class="line">input_str &#x3D; &#39;我们 科技 带来 的 科技 希望 我们 差&#39;</span><br><span class="line"></span><br><span class="line">token_idf_dict &#x3D; &#123;&#125;</span><br><span class="line"># 将idf字典加载到内存</span><br><span class="line">with open(idf_path, &#39;r&#39;, encoding&#x3D;&#39;utf-8&#39;) as fd:</span><br><span class="line">    for line in fd:</span><br><span class="line">        ss &#x3D; line.strip().split(&#39;\t&#39;)</span><br><span class="line">        if len(ss) !&#x3D; 2:</span><br><span class="line">            continue</span><br><span class="line">        token, idf_score &#x3D; ss</span><br><span class="line">        token_idf_dict[token] &#x3D; idf_score</span><br><span class="line"></span><br><span class="line">def get_tfidf(input_str):</span><br><span class="line">    token_dict &#x3D; &#123;&#125;</span><br><span class="line">    # 对输入字符串的每一个词，计算tf</span><br><span class="line">    ##计算单词在该文章出现次数</span><br><span class="line">    for t in input_str.strip().split(&#39; &#39;):</span><br><span class="line">        if t not in token_dict:</span><br><span class="line">            token_dict[t] &#x3D; 1</span><br><span class="line">        else:</span><br><span class="line">            token_dict[t] +&#x3D; 1</span><br><span class="line">    print(token_dict)</span><br><span class="line">    # res_tu_list &#x3D; [] TF-IDF&#x3D;TF*IDF</span><br><span class="line">    for k, v in token_dict.items():</span><br><span class="line">        tf_score &#x3D; token_dict[k]</span><br><span class="line">        if k not in token_idf_dict:</span><br><span class="line">            continue</span><br><span class="line">        idf_score &#x3D; token_idf_dict[k]</span><br><span class="line">        tf_idf &#x3D; tf_score * float(idf_score)</span><br><span class="line">        yield (k, tf_idf)</span><br><span class="line"></span><br><span class="line">for k, v in get_tfidf(input_str):</span><br><span class="line">    print(k, v)</span><br></pre></td></tr></table></figure>
-<p>执行结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#39;我们&#39;: 2, &#39;科技&#39;: 2, &#39;带来&#39;: 1, &#39;的&#39;: 1, &#39;希望&#39;: 1, &#39;差&#39;: 1&#125;</span><br><span class="line">我们 2.240920456387959</span><br><span class="line">科技 4.378793497431945</span><br><span class="line">带来 1.4617633920848578</span><br><span class="line">的 0.0059113472630571645</span><br><span class="line">希望 1.9419885754021315</span><br><span class="line">差 3.013572191682322</span><br></pre></td></tr></table></figure>
-<p>分析：“科技”的TF-IDF值最高，代表该文章的关键词；“的”的TF-IDF值最低，表示该词是最常用的词，也叫”停用词”（stop words）。</p>
-<p>文档库数据集在这：<a href="https://github.com/AthenaHe/BigData-Studies.git" target="_blank" rel="noopener">下载地址</a>或者这个<a href="https://download.csdn.net/download/weixin_34566605/12439657" target="_blank" rel="noopener">下载地址</a></p>
-<p>未完待续。。。</p>
-<p>参考文档：<br><a href="https://blog.csdn.net/u013982921/article/details/80964335" target="_blank" rel="noopener">TF-IDF原理及使用</a><br><a href="http://www.ruanyifeng.com/blog/2013/03/tf-idf.html" target="_blank" rel="noopener">TF-IDF与余弦相似性的应用（一）：自动提取关键词</a><br><a href="http://www.ruanyifeng.com/blog/2013/03/cosine_similarity.html" target="_blank" rel="noopener">TF-IDF与余弦相似性的应用（二）：找出相似文章</a></p>
+<h1 id="二、HashMap底层原理"><a href="#二、HashMap底层原理" class="headerlink" title="二、HashMap底层原理"></a>二、HashMap底层原理</h1><ul>
+<li>JDK1.8之前HashMap是采用“<strong>数组+链表</strong>”（散列表）组成的。数组是hashMap的主体，链表是为了解决hash冲突，采用拉链法（链地址法）解决冲突。</li>
+<li>JDK1.8之后，解决Hash冲突发生了变化。当链表长度大于阈值(默认为8)时，将链表转换为红黑树，可以减少搜索时间。“<strong>数组+链表/红黑树</strong>”<br><img src="https://img-blog.csdnimg.cn/20200326172424303.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>疑问解答区：</li>
+</ul>
+<blockquote>
+<p><strong>1. 为什么要用红黑树</strong>？<br>链表过长的时候可能会导致查询的时间加大，TreeMap、TreeSet以及JDK1.8之后的HashMap底层都用到了红黑树。<strong>红黑树就是为了解决二叉搜索树的缺陷，因为二叉搜索树在某些情况下会退化成一个线性结构。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>2. 链表什么时候会转换红黑树，红黑树什么时候转换回链表？</strong><br>若bucket的链表元素&gt;=8,则链表转换成红黑树结构。<br>若bucket的链表元素&lt;=6,则红黑树转换成链表结构。<br>原因：链表平均查找长度为N/2，红黑树平均查找长度为logN。当元素个数为8时，链表平均查找长度为4，红黑树平均查找长度为3，所以转换成红黑树可以加快查找速度。当元素个数为6，链表平均查找长度为3和红黑树差不多，而且链表结构比较简单，所以采用链表就可以了。</p>
+</blockquote>
+<h1 id="三、HashMap的put操作、get操作"><a href="#三、HashMap的put操作、get操作" class="headerlink" title="三、HashMap的put操作、get操作"></a>三、HashMap的put操作、get操作</h1><ol>
+<li>HashMap的put方法实现<br><img src="https://img-blog.csdnimg.cn/20200326183918503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+<ul>
+<li>对key做hash，算出来bucket(数组索引)的位置</li>
+<li>如果没有碰撞，直接放bucket里。</li>
+<li>如果发生碰撞，则以链表的形式存在bucket后（不同key的hashcode相同，导致计算出来的hash值相同，会出现这种hash碰撞），若链表大于长度8，则转换为红黑树。</li>
+<li>如果节点key已经存在则替换value值</li>
+<li>如果bucket满了（超过了loadfactor*currentCapacity），就要resize。<blockquote>
+<pre><code>将对象放入到集合中时，首先判断要放入对象的hashcode值与集合中的任意一个元素的hashcode值是否相等，如果不相等直接将该对象放入集合中。如果hashcode值相等，然后再通过equals方法判断要放入对象与集合中的任意一个对象是否相等，如果equals判断不相等，直接将该元素放入到集合中，否则不放入。</code></pre></blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>HashMap的get操作</li>
+</ol>
+<ul>
+<li>如果是bucket里的第一个节点，直接查找到值，时间复杂度为O(1)；</li>
+<li>如果有冲突，则通过key.equals(k)去查找对应的entry(key-value整体当成一个entry对象)，【链表】时间复杂度为O(n)，【红黑树】时间复杂度为O(logn)。<br><img src="https://img-blog.csdnimg.cn/2020032820033517.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><blockquote>
+<p><strong>hashcode()和equals()关系</strong><br>1.equal()相等的两个对象他们的hashCode()肯定相等，也就是用equal()对比是绝对可靠的。</p>
+</blockquote>
+</li>
+</ul>
+<p>2.hashCode()相等的两个对象他们的equal()不一定相等，也就是hashCode()不是绝对可靠的。</p>
+<p><strong>总结</strong>：<br>    hashmap在底层将key-value当成一个整体进行处理，叫entry对象。hashmap底层采用一个entry[]数组来保存所有的key-value对，当需要存储一个entry对象时，会根据hash算法来决定其在数组中的存储位置，再根据equals方法决定其在该数组位置上的链表中的存储位置，当需要取出一个entry时，也会根据hash算法找到其在数组中的存储位置，再根据equals方法从该位置上的链表中取出该entry。</p>
+<h1 id="四、HashMap的扩容机制resize"><a href="#四、HashMap的扩容机制resize" class="headerlink" title="四、HashMap的扩容机制resize()"></a>四、HashMap的扩容机制resize()</h1><p><strong>为什么要扩容</strong>？当hashmap中元素越来越多，碰撞几率也越来越大，为了提高查询效率，需要对数组进行扩容，进行rehash的过程。<br><strong>什么时候扩容</strong>？当元素个数&gt;=loadfactor*capacity，(loadFactor默认0.75，capacity初始值16)，也就是第一次扩容是数组元素超过阈值12的时候，且新建的Entry刚好落在一个非空的桶上，此刻触发扩容机制，将其容量扩大为2倍。</p>
+<blockquote>
+<p>注意⚠️： 当size大于等于threshold的时候，并不一定会触发扩容机制(比如增加的entry对应的是一个空桶，那直接加载空桶里面，如果对应的不是空桶，会将链表拉长，就会触发扩容)，但是会很可能就触发扩容机制，只要有一个新建的Entry出现哈希冲突，则立刻resize。<br><img src="https://img-blog.csdnimg.cn/20200328213506442.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</blockquote>
+<p><strong>怎么扩容呢</strong>？第一次hashmap没有任何值的时候，数组直接扩成长度16，然后超过阈值12时，创建一个新数组，扩大一倍，然后重新计算每个元素在数组中的位置。以后每次都扩大一倍。<br><img src="https://img-blog.csdnimg.cn/20200328211259717.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>Jdk7中创建对象时，则初始化table容量为16（饿汉式）。<br>Jdk8中创建对象时，并没有初始化，而是第一次添加元素时初始化table变量为16（懒汉式）。</p>
+</blockquote>
+<h1 id="五、HashMap的长度为什么是2的幂次方"><a href="#五、HashMap的长度为什么是2的幂次方" class="headerlink" title="五、HashMap的长度为什么是2的幂次方"></a>五、HashMap的长度为什么是2的幂次方</h1><p>原因1:<br>看下图，左边两组是数组长度为16（2的4次方），右边两组是数组长度为15。两组的hashcode均为8和9，但是很明显，当它们和1110“&amp;”的时候，产生了相同的结果，也就是说它们会定位到数组中的同一个位置上去，这就产生了碰撞，8和9会被放到同一个链表上，那么查询的时候就需要遍历这个链表，得到8或者9，这样就降低了查询的效率。同时，我们也可以发现，当数组长度为15的时候，hashcode的值会与14（1110）进行“与”，那么最后一位永远是0，而0001，0011，0101，1001，1011，0111，1101这几个位置永远都不能存放元素了，空间浪费相当大，更糟的是这种情况中，数组可以使用的位置比数组长度小了很多，这意味着进一步增加了碰撞的几率，减慢了查询的效率！ <img src="https://img-blog.csdnimg.cn/20200328203704647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  所以说，当数组长度为2的n次幂的时候，<strong>不同的key算得得index相同的几率较小，那么数据在数组上分布就比较均匀，</strong>也就是说碰撞的几率小，相对的，查询的时候就不用遍历某个位置上的链表，这样查询效率也就较高了。</p>
+<p> 原因2:<br>  为了HashMap存取高效，尽量减少碰撞，<strong>就要尽量让数据分配均匀</strong>，让每个链表/红黑树长度大致相同。解决这个问题可以采用取余（取模）来实现，【<strong>当length是2的次幂时，hash%length==hash&amp;（length-1）】</strong>，又二进制&amp;比%更能提高运算效率。所以采用了&amp;操作，前提是HashMap的长度必须是2的幂次方。</p>
+<p>HashMap中的hash算法（源码实现）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">方法一：</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object key)</span> </span>&#123;   <span class="comment">//jdk1.8 &amp; jdk1.7</span></span><br><span class="line">     <span class="keyword">int</span> h;</span><br><span class="line">     <span class="comment">// h = key.hashCode() 为第一步 取hashCode值</span></span><br><span class="line">     <span class="comment">// h ^ (h &gt;&gt;&gt; 16)  为第二步 高位参与运算</span></span><br><span class="line">     <span class="keyword">return</span> (key == <span class="keyword">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">&#125;</span><br><span class="line">方法二：</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">indexFor</span><span class="params">(<span class="keyword">int</span> h, <span class="keyword">int</span> length)</span> </span>&#123;  <span class="comment">//jdk1.7的源码，jdk1.8没有这个方法，但是实现原理一样的</span></span><br><span class="line">     <span class="keyword">return</span> h &amp; (length-<span class="number">1</span>);  <span class="comment">//第三步 取模运算</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Hash算法本质上就是三步：取key的hashCode值(h)、高位运算、取模运算。取模运算为h &amp; (table.length -1)来得到该对象的保存位，当length总是2的n次方时，h&amp; (length-1)运算等价于对length取模【length=2^n时，h&amp; (length-1) == h% length】，也就是h%length，但是&amp;比%具有更高的效率。如下：（n为table长度length）<br><img src="https://img-blog.csdnimg.cn/20200326184405514.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>hashmap中数组默认长度为16</p>
+</blockquote>
+<h1 id="六、HashMap的线程安全问题"><a href="#六、HashMap的线程安全问题" class="headerlink" title="六、HashMap的线程安全问题"></a>六、HashMap的线程安全问题</h1><ul>
+<li>jdk7中hashmap并发put操作同时触发resize会造成循环链表，导致get出现死循环。【该问题jdk8中已经解决】<blockquote>
+<p>transfer代码如下：<br>do {<br>  Entry&lt;K,V&gt; next = e.next;// &lt;–假设线程一执行到这里就被调度挂起了<br>  int i = indexFor(e.hash, newCapacity);<br>  e.next = newTable[i];<br>  newTable[i] = e;<br>  e = next;<br>} while (e != null);<br>1)假设两个线程，其中线程1执行到一半挂起，时间片分给了线程2，线程2执行完成。出现下面的情况：<img src="https://img-blog.csdnimg.cn/20200328214146465.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这时，线程1的e指向了key(3),next指向了key(7)，而线程2在rehash后，e和next的位置发生了变化。<br>2)线程1结束挂起后开始执行，<br>先执行newTable[i]=e;<br>然后e=next，导致e指向了key(7)<br>下一次循环的next=e.next导致next指向了key(3)<br><img src="https://img-blog.csdnimg.cn/20200328215241749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>线程一接着工作。把key(7)摘下来，放到newTable[i]的第一个，然后把e和next往下移。<br><img src="https://img-blog.csdnimg.cn/20200328215436336.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>4）环形链接出现。<br>e.next = newTable[i] 导致  key(3).next 指向了 key(7)<br>注意：此时的key(7).next 已经指向了key(3)， 环形链表就这样出现了。<br><img src="https://img-blog.csdnimg.cn/20200328215610365.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>于是当我们进行get操作，比如get(11)时，遍历索引3所在的链表，由于是循环链表，所以永远也不会结束。。。</p>
+</blockquote>
+</li>
+<li>多个线程进行put操作时，可能触发resize操作，如果产生hash碰撞，导致两个线程在得到相同的索引去存储值，可能会出现覆盖丢失的情况。</li>
+</ul>
+<p><strong>解决方案：</strong></p>
+<ul>
+<li>使用Hashtable类替换HashMap(现在一般不用这个了) ，HashTable是线程安全的。</li>
+<li>使用ConcurrentHashMap替换HashMap，具有分段锁，也是线程安全的。</li>
+<li>使用Collection.synchronizedMap将HashMap包装起来。</li>
+</ul>
+<p>参考文章：<br><a href="https://www.jb51.net/article/113433.htm" target="_blank" rel="noopener">https://www.jb51.net/article/113433.htm</a><br>cnblogs.com/williamjie/p/9358291.html<br><a href="https://www.jianshu.com/p/c3633291ecda" target="_blank" rel="noopener">https://www.jianshu.com/p/c3633291ecda</a><br><a href="https://www.cnblogs.com/andy-zhou/p/5402984.html" target="_blank" rel="noopener">https://www.cnblogs.com/andy-zhou/p/5402984.html</a></p>
 
       
     </div>
@@ -460,7 +506,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
         </div>
       
@@ -473,14 +519,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2020/06/01/%E5%80%BC%E5%BE%97%E4%B8%80%E7%9C%8B%E7%9A%84GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6%E6%80%BB%E7%BB%93/" rel="next" title="值得一看的GC垃圾回收机制总结">
+                <i class="fa fa-chevron-left"></i> 值得一看的GC垃圾回收机制总结
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/05/31/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84Docker%E6%80%BB%E7%BB%93/" rel="prev" title="超详细的Docker总结">
-                超详细的Docker总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/06/01/%E6%95%99%E4%BD%A0%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%EF%BC%9Amac%E7%94%B5%E8%84%91%E5%8D%B8%E8%BD%BD%E5%8F%8C%E7%B3%BB%E7%BB%9F%E4%B8%ADBoot-camp%E5%8A%A9%E7%90%86%E5%87%BA%E7%8E%B0%E2%80%9C%E5%90%AF%E5%8A%A8%E7%A3%81%E7%9B%98%E4%B8%8D%E8%83%BD%E8%A2%AB%E5%88%86%E5%8C%BA%E6%88%96%E6%81%A2%E5%A4%8D%E6%88%90%E5%8D%95%E4%B8%AA%E5%88%86%E5%8C%BA/" rel="prev" title="教你解决问题：mac电脑卸载双系统中Boot camp助理出现“启动磁盘不能被分区或恢复成单个分区”">
+                教你解决问题：mac电脑卸载双系统中Boot camp助理出现“启动磁盘不能被分区或恢复成单个分区” <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -642,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、TF-IDF算法介绍"><span class="nav-number">1.</span> <span class="nav-text">一、TF-IDF算法介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、举例说明"><span class="nav-number">2.</span> <span class="nav-text">二、举例说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、案例实战：基于TF-IDF的关键词提取"><span class="nav-number">3.</span> <span class="nav-text">三、案例实战：基于TF-IDF的关键词提取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基于python-mapreduce的TF-IDF计算"><span class="nav-number">3.0.1.</span> <span class="nav-text">1. 基于python mapreduce的TF-IDF计算</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言知识"><span class="nav-number">1.</span> <span class="nav-text">前言知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、HashMap一些概念"><span class="nav-number">2.</span> <span class="nav-text">一、HashMap一些概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、HashMap底层原理"><span class="nav-number">3.</span> <span class="nav-text">二、HashMap底层原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、HashMap的put操作、get操作"><span class="nav-number">4.</span> <span class="nav-text">三、HashMap的put操作、get操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、HashMap的扩容机制resize"><span class="nav-number">5.</span> <span class="nav-text">四、HashMap的扩容机制resize()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、HashMap的长度为什么是2的幂次方"><span class="nav-number">6.</span> <span class="nav-text">五、HashMap的长度为什么是2的幂次方</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、HashMap的线程安全问题"><span class="nav-number">7.</span> <span class="nav-text">六、HashMap的线程安全问题</span></a></li></ol></div>
             
 
           </div>

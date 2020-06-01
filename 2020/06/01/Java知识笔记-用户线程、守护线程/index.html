@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java," />
 
 
 
@@ -83,14 +83,16 @@
 
 
 
-<meta name="description" content="这个一个菜鸟程序媛的小博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Athenahe的小天地">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="java分两种线程：用户线程（user thread）和守护线程（daemon thread）。 1. 用户线程、守护线程定义守护线程：指程序运行时后台服务线程，比如：垃圾回收线程，当所有非守护线程结束时，程序也就终止，同时会杀死进程中所有的守护线程，反过来说，如果任何非守护线程还在运行，程序不会终止，守护线程就不会终止。【有非守护线程在，守护线程一定在；非守护线程不在程序终止，守护线程随之消亡】">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java知识笔记--用户线程、守护线程">
+<meta property="og:url" content="http://yoursite.com/2020/06/01/Java%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0-%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B%E3%80%81%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Athenahe的小天地">
-<meta property="og:description" content="这个一个菜鸟程序媛的小博客">
+<meta property="og:description" content="java分两种线程：用户线程（user thread）和守护线程（daemon thread）。 1. 用户线程、守护线程定义守护线程：指程序运行时后台服务线程，比如：垃圾回收线程，当所有非守护线程结束时，程序也就终止，同时会杀死进程中所有的守护线程，反过来说，如果任何非守护线程还在运行，程序不会终止，守护线程就不会终止。【有非守护线程在，守护线程一定在；非守护线程不在程序终止，守护线程随之消亡】">
+<meta property="article:published_time" content="2020-06-01T02:23:54.000Z">
+<meta property="article:modified_time" content="2020-06-01T02:24:31.976Z">
 <meta property="article:author" content="Athenahe">
-<meta property="article:tag" content="奋斗">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 
 
@@ -121,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/06/01/Java知识笔记-用户线程、守护线程/"/>
 
 
 
 
 
-  <title>归档 | Athenahe的小天地</title>
+  <title>Java知识笔记--用户线程、守护线程 | Athenahe的小天地</title>
   
 
 
@@ -146,7 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -284,486 +286,221 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 目前共计 32 篇日志。 继续努力。
-      </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/01/Java%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0-%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B%E3%80%81%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Athenahe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Athenahe的小天地">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline">Java知识笔记--用户线程、守护线程</h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-01T10:23:54+08:00">
+                2020-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2020">2020</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/Java%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%9550%E9%A2%98/" itemprop="url">
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="name">Java基础算法50题</span>
+                <span class="post-meta-item-text">分类于</span>
               
-            </a>
-        
-      </h2>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:29:07+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
+                
+                
+              
+            </span>
+          
 
-    </header>
-  </article>
+          
+            
+          
 
+          
+          
 
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/linux%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0%E5%92%8C%E5%88%A0%E9%99%A4%E6%96%B0%E7%94%A8%E6%88%B7%E5%92%8C%E5%AF%86%E7%A0%81/" itemprop="url">
-              
-                <span itemprop="name">linux批量添加和删除新用户和密码</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:28:53+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <p>java分两种线程：<strong>用户线程（user thread）和守护线程（daemon thread）。</strong></p>
+<h1 id="1-用户线程、守护线程定义"><a href="#1-用户线程、守护线程定义" class="headerlink" title="1. 用户线程、守护线程定义"></a>1. 用户线程、守护线程定义</h1><p><strong>守护线程</strong>：<strong>指程序运行时后台服务线程</strong>，比如：垃圾回收线程，当所有非守护线程结束时，程序也就终止，同时会杀死进程中所有的守护线程，反过来说，如果任何非守护线程还在运行，程序不会终止，守护线程就不会终止。<strong>【有非守护线程在，守护线程一定在；非守护线程不在程序终止，守护线程随之消亡】</strong><br><strong>用户线程</strong>：<strong>用户自己创建的线程</strong>，比如：new thread。</p>
+<h1 id="2-用户线程与守护线程的区别"><a href="#2-用户线程与守护线程的区别" class="headerlink" title="2. 用户线程与守护线程的区别"></a>2. 用户线程与守护线程的区别</h1><ul>
+<li>在于虚拟机的退出（程序的终止），当虚拟机内只剩下守护线程时，虚拟机会退出，程序会终止。</li>
+<li>通常我们使用Thread创建的线程在默认情况下都属于用户线程，当在启动线程之前，执行thread.setDaemon(true)时，线程会变成守护线程。</li>
+</ul>
+<blockquote>
+<p> <strong>java守护线程与linux守护线程的区别</strong>：linux守护线程是系统级别的，系统退出，守护线程才会终止，<strong>可在命令最后加&amp;</strong>，表示以守护进程方式运行，windows中可运行javaw来达到释放控制台的目的。java中守护线程是JVM级别的，当JVM中没有用户线程时，守护线程终止，jvm退出，程序终止.</p>
+</blockquote>
+<h1 id="3-守护线程"><a href="#3-守护线程" class="headerlink" title="3. 守护线程"></a>3. 守护线程</h1><h2 id="3-1-守护线程的特点"><a href="#3-1-守护线程的特点" class="headerlink" title="3.1 守护线程的特点"></a>3.1 守护线程的特点</h2><ol>
+<li>守护线程是运行程序后台的线程；</li>
+<li>守护线程创建的线程，依然是守护线程。</li>
+<li>守护线程不会影响JVM的退出，当JVM只剩下守护线程时，JVM进行退出。</li>
+<li>守护线程在JVM退出时，自动销毁。</li>
+</ol>
+<h2 id="3-2-要注意⚠️"><a href="#3-2-要注意⚠️" class="headerlink" title="3.2 要注意⚠️"></a>3.2 要注意⚠️</h2><ul>
+<li><p><strong>thread.setDaemon(true)需要在执行thread.start()方法之前设置</strong>，否则会抛出IllegalThreadStateException异常。不可以把正在运行的常规线程设置为守护线程。</p>
+</li>
+<li><p>守护线程应该永远不去访问固有资源，如文件、数据库，因为它会在任何时候甚至在一个操作的中间发生中断。</p>
+<h2 id="3-3-守护线程适用场景"><a href="#3-3-守护线程适用场景" class="headerlink" title="3.3 守护线程适用场景"></a>3.3 守护线程适用场景</h2><p>通常可用于开发一些为其它用户线程服务的功能Thread Dump打印出来的线程信息，含有daemon，比如：心跳检测，windows下的监听Ctrl+break的守护进程，GC（垃圾回收），Finalizer守护进程、编译守护进程、服务守护进程、引用处理守护进程。</p>
+</li>
+</ul>
+<p>一个守护线程的小例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;		</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"this is a example of daemonThread."</span>);</span><br><span class="line">			<span class="comment">//创建一个守护线程及写好其业务逻辑</span></span><br><span class="line">			Thread daemonThread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;			</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">					<span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">						System.out.println(Thread.currentThread().getName()+<span class="string">" starting."</span>);</span><br><span class="line">						<span class="keyword">try</span> &#123;</span><br><span class="line">							Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">						&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">							e.printStackTrace();</span><br><span class="line">						&#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">							System.out.println(Thread.currentThread().getName()+<span class="string">" finally."</span>);</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;					</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);		</span><br><span class="line">			<span class="comment">//创建一个子线程</span></span><br><span class="line">			Thread subThread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;		</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">							daemonThread.setDaemon(<span class="keyword">true</span>);</span><br><span class="line">							daemonThread.start();<span class="comment">//开始执行这个线程</span></span><br><span class="line">							System.out.println(Thread.currentThread().getName()+<span class="string">" is Running."</span>);</span><br><span class="line">					&#125;								</span><br><span class="line">			&#125;);			</span><br><span class="line">			subThread.start();		</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				Thread.sleep(<span class="number">2000</span>); <span class="comment">//主线程休息2s保证子线程能够执行它的业务逻辑</span></span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">				System.out.println(Thread.currentThread().getName()+<span class="string">" is finished."</span>);</span><br><span class="line">			&#125;		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行结果一：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span> is a example of daemonThread.</span><br><span class="line">Thread-<span class="number">0</span> starting.</span><br><span class="line">Thread-<span class="number">1</span> is start.</span><br><span class="line">Thread-<span class="number">0</span> <span class="keyword">finally</span>.</span><br><span class="line">Thread-<span class="number">0</span> starting.</span><br><span class="line">main is finished.</span><br></pre></td></tr></table></figure>
 
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/%E6%89%8B%E6%8A%8A%E6%89%8B%E8%BF%9B%E8%A1%8CCentoOS-6-5%E5%AE%89%E8%A3%85/" itemprop="url">
-              
-                <span itemprop="name">手把手进行CentoOS 6.5安装</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:28:41+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+<blockquote>
+<p>分析：main方法是我们的主线程，首先让它sleep 2s,保证子线程能够完整执行。子线程开始执行，守护线程也开始执行<code>Thread-0 starting.</code>,然后守护线程休眠了，子线程打印<code>Thread-1 is start.</code>后退出，这时候守护线程也要退出，但是由于守护线程在退出时不会执行finally中的代码，所以只打印了<code>Thread-0 finally.\n Thread-0 starting.</code>之后就退出了，所以守护线程不能依靠finally块的内容来确保执行关闭或者清理资源。（守护线程在JVM退出时，自动销毁。）</p>
+</blockquote>
+<p>执行结果二：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span> is a example of daemonThread.</span><br><span class="line">Thread-<span class="number">0</span> starting.</span><br><span class="line">Thread-<span class="number">1</span> is start.</span><br><span class="line">Thread-<span class="number">0</span> <span class="keyword">finally</span>.</span><br><span class="line">Thread-<span class="number">0</span> starting.</span><br><span class="line">main is finished.</span><br><span class="line">Thread-<span class="number">0</span> <span class="keyword">finally</span>.</span><br><span class="line">Thread-<span class="number">0</span> starting.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>分析：这次守护线程是在main()结束后才退出，与上面的结果不一样。这和守护线程休眠获得的时间片有关。理论来说，这种打印结果比较符合我们的分析判断。守护线程应该是在所有用户线程（main,subThread）都结束后再终结自己。</p>
+</blockquote>
+<p><code>（ps：目前执行结果只出现上面这两种情况，也不知道我分析的对不对，如果有错误，希望指正）</code></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/SpringBoot-JPA-mysql%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5-%E4%BA%8C-%E5%AE%9E%E6%88%98%E5%BC%80%E5%8F%91/" itemprop="url">
-              
-                <span itemprop="name">SpringBoot+JPA+mysql实现简单的增删改查(二)---实战开发</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:28:26+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/SpringBoot-JPA-mysql%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5-%E4%B8%80-Spring-Boot%E5%85%A5%E9%97%A8/" itemprop="url">
-              
-                <span itemprop="name">SpringBoot+JPA+mysql实现简单的增删改查(一)---Spring Boot入门</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:28:10+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%E7%AC%94%E8%AE%B0-%E5%AD%97%E5%85%B8%E6%A0%91/" itemprop="url">
-              
-                <span itemprop="name">知识总结笔记-字典树</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:27:57+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/java%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%87%A0%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url">
-              
-                <span itemprop="name">java知识总结-常见的几种设计模式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:27:33+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" itemprop="url">
-              
-                <span itemprop="name">设计模式知识笔记-建造者模式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:26:40+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/Java%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0-Java%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0/" itemprop="url">
-              
-                <span itemprop="name">Java知识笔记--Java线程创建方式、线程池</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:26:19+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88JMM%EF%BC%89%E6%A6%82%E8%BF%B0/" itemprop="url">
-              
-                <span itemprop="name">Java内存模型（JMM）概述</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:24:51+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/Java%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0-%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B%E3%80%81%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" itemprop="url">
-              
-                <span itemprop="name">Java知识笔记--用户线程、守护线程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:23:54+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/01/java%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E9%80%A0%E6%88%90%E6%AD%BB%E9%94%81%E7%9A%84%E4%BB%A3%E7%A0%81/" itemprop="url">
-              
-                <span itemprop="name">java实现一个简单的造成死锁的代码</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-01T10:22:57+08:00"
-              content="2020-06-01" >
-          06-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">---------本文结束啦<i class="fa fa-paw"></i>感谢您的阅读，请多指教---------</div>
+    
+</div>
+
+
+  
+</div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/01/java%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E9%80%A0%E6%88%90%E6%AD%BB%E9%94%81%E7%9A%84%E4%BB%A3%E7%A0%81/" rel="next" title="java实现一个简单的造成死锁的代码">
+                <i class="fa fa-chevron-left"></i> java实现一个简单的造成死锁的代码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/01/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88JMM%EF%BC%89%E6%A6%82%E8%BF%B0/" rel="prev" title="Java内存模型（JMM）概述">
+                Java内存模型（JMM）概述 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">&gt;</a>
-  </nav>
+  </article>
 
 
 
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -771,6 +508,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -791,10 +532,19 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=864711417&auto=1&height=66"></iframe>
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -881,6 +631,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-用户线程、守护线程定义"><span class="nav-number">1.</span> <span class="nav-text">1. 用户线程、守护线程定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-用户线程与守护线程的区别"><span class="nav-number">2.</span> <span class="nav-text">2. 用户线程与守护线程的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-守护线程"><span class="nav-number">3.</span> <span class="nav-text">3. 守护线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-守护线程的特点"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 守护线程的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-要注意⚠️"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 要注意⚠️</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-守护线程适用场景"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 守护线程适用场景</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1026,6 +792,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

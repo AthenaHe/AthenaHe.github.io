@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="算法," />
+  <meta name="keywords" content="java," />
 
 
 
@@ -83,24 +83,24 @@
 
 
 
-<meta name="description" content="一、TF-IDF算法介绍 TF-IDF(term frequency–inverse document frequency，词频-逆向文件频率)是一种用于信息检索（information retrieval）与文本挖掘（text mining）的常用加权技术.  TF-IDF是一种统计方法，用以评估字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比">
+<meta name="description" content="今天看Java内存模型，觉的有一篇文章写的比较好，所以引用过来。转载地址：https:&#x2F;&#x2F;blog.csdn.net&#x2F;justloveyou_&#x2F;article&#x2F;details&#x2F;71189093  Java内存模型（Java Memory Model），简称JMM。JMM定义了Java 虚拟机(JVM)在计算机内存(RAM)中的工作方式。JVM是整个计算机虚拟模型，所以JMM是隶属于JVM的。  @">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TF-IDF算法及分析">
-<meta property="og:url" content="http://yoursite.com/2020/05/30/TF-IDF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%88%86%E6%9E%90/index.html">
+<meta property="og:title" content="Java内存模型（JMM）概述">
+<meta property="og:url" content="http://yoursite.com/2020/06/01/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88JMM%EF%BC%89%E6%A6%82%E8%BF%B0/index.html">
 <meta property="og:site_name" content="Athenahe的小天地">
-<meta property="og:description" content="一、TF-IDF算法介绍 TF-IDF(term frequency–inverse document frequency，词频-逆向文件频率)是一种用于信息检索（information retrieval）与文本挖掘（text mining）的常用加权技术.  TF-IDF是一种统计方法，用以评估字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020052009103531.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020052009100163.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200520090842228.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200520090718258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200520090545198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200520090448619.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-05-30T02:45:04.000Z">
-<meta property="article:modified_time" content="2020-06-01T01:51:51.191Z">
+<meta property="og:description" content="今天看Java内存模型，觉的有一篇文章写的比较好，所以引用过来。转载地址：https:&#x2F;&#x2F;blog.csdn.net&#x2F;justloveyou_&#x2F;article&#x2F;details&#x2F;71189093  Java内存模型（Java Memory Model），简称JMM。JMM定义了Java 虚拟机(JVM)在计算机内存(RAM)中的工作方式。JVM是整个计算机虚拟模型，所以JMM是隶属于JVM的。  @">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200310160652447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200310165422141.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200310162358276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200310164218620.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200310184918475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200310185225470.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-06-01T02:24:51.000Z">
+<meta property="article:modified_time" content="2020-06-01T02:36:46.963Z">
 <meta property="article:author" content="Athenahe">
-<meta property="article:tag" content="算法">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2020052009103531.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200310160652447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/30/TF-IDF原理及分析/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/06/01/Java内存模型（JMM）概述/"/>
 
 
 
 
 
-  <title>TF-IDF算法及分析 | Athenahe的小天地</title>
+  <title>Java内存模型（JMM）概述 | Athenahe的小天地</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/30/TF-IDF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%88%86%E6%9E%90/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/01/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88JMM%EF%BC%89%E6%A6%82%E8%BF%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Athenahe">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">TF-IDF算法及分析</h1>
+          <h1 class="post-title" itemprop="name headline">Java内存模型（JMM）概述</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-30T10:45:04+08:00">
-                2020-05-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-01T10:24:51+08:00">
+                2020-06-01
               </time>
             
 
@@ -396,40 +396,62 @@
       
 
       
-        <h1 id="一、TF-IDF算法介绍"><a href="#一、TF-IDF算法介绍" class="headerlink" title="一、TF-IDF算法介绍"></a>一、TF-IDF算法介绍</h1><blockquote>
-<p>TF-IDF(term frequency–inverse document frequency，词频-逆向文件频率)是一种用于信息检索（information retrieval）与文本挖掘（text mining）的常用加权技术.</p>
-</blockquote>
-<p>TF-IDF是一种统计方法，用以评估字词对于一个文件集或一个语料库中的其中一份文件的重要程度。<strong>字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降</strong>。</p>
-<p><strong>TF-IDF主要思想</strong>：如果一个单词在该文章中出现的频率(TF)高，并且在其它文章中出现频率很低，则认为该单词具有很好的区分能力，适合用来进行分类。</p>
-<p>1）==词频==(Term Frequency)表示单词在该文章中出现的频率。通常归一化处理，以防止它偏向长的文件。</p>
-<p>词频(TF) = 单词在该文章出现次数/当前文章总单词数<br><img src="https://img-blog.csdnimg.cn/2020052009103531.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">2）==反问档频率==(Inverse Document Frequency)表示某一个特定单词IDF可以由总文章数除以包含该单词的文章数，再将得到的商取对数得到。如果包含该单词的文章越少，则IDF越大，则表明该单词具有很好的文章区分能力。</p>
-<p>反问档频率(IDF) = log(语料库中文章总数/(包含该单词的文章数+1))<br><img src="https://img-blog.csdnimg.cn/2020052009100163.png" alt="在这里插入图片描述"> </p>
+        <p>今天看Java内存模型，觉的有一篇文章写的比较好，所以引用过来。<br>转载地址：<a href="https://blog.csdn.net/justloveyou_/article/details/71189093" target="_blank" rel="noopener">https://blog.csdn.net/justloveyou_/article/details/71189093</a></p>
 <blockquote>
-<p>question：为什么分母+1？<br>answer：分母之所以+1是为了避免分母为0.<br>其实最简单的IDF公式应该是log(语料库中文章总数/(包含该单词的文章数))，但是在一些特殊的时候会出现问题，比如一些生僻词在语料库中没有，这样分母会为0，IDF就没有意义了，为了避免这种情况发生，我们需要对IDF进行一些平滑操作，使得语料库中没有出现的生僻词也可以得到一个合适的IDF值。平滑的方式有很多种，上面的将分母+1是最简单的一种方式，还有一种比较常见的IDF平滑公式是IDF=log(语料库中文章总数+1/(包含该单词的文章数+1)+1)</p>
+<p>Java内存模型（Java Memory Model），简称JMM。JMM定义了Java 虚拟机(JVM)在计算机内存(RAM)中的工作方式。JVM是整个计算机虚拟模型，所以JMM是隶属于JVM的。</p>
 </blockquote>
-<p>==TF-IDF与一个词在文档中的出现次数成正比， 与包含该词的文档数成反比。==</p>
-<p>有了IDF的定义，我们就可以计算某一个词语的TF-IDF值:<br>TF-IDF(x)=TF(x)<em>IDF(x),其中TF(x)指单词x在当前文章中的词频。<br><img src="https://img-blog.csdnimg.cn/20200520090842228.png" alt="在这里插入图片描述"><br>*</em>TF-IDF算法的优点**：简单快速，结果比较符合实际情况。</p>
-<p><strong>TF-IDF算法的缺点</strong>：单纯以”词频”衡量一个词的重要性，不够全面，有时重要的词可能出现次数并不多。而且，这种算法无法体现词的位置信息，出现位置靠前的词与出现位置靠后的词，都被视为重要性相同，这是不正确的。（一种解决方法是，对全文的第一段和每一段的第一句话，给予较大的权重。）</p>
-<p><strong>TF-IDF的应用场景</strong>：TF-IDF算法可用来提取文档的关键词，关键词在文本聚类、文本分类、文献检索、自动文摘等方面有着重要应用。</p>
-<h1 id="二、举例说明"><a href="#二、举例说明" class="headerlink" title="二、举例说明"></a>二、举例说明</h1><p>以《中国的蜜蜂养殖》为例，假定该文长度为1000个词，”中国”、”蜜蜂”、”养殖”各出现20次，则这三个词的”词频”（TF）都为0.02。然后，搜索Google发现，包含”的”字的网页共有250亿张，假定这就是中文网页总数。包含”中国”的网页共有62.3亿张，包含”蜜蜂”的网页为0.484亿张，包含”养殖”的网页为0.973亿张。则它们的逆文档频率（IDF）和TF-IDF如下：<br><img src="https://img-blog.csdnimg.cn/20200520090718258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">从上表可见，”蜜蜂”的TF-IDF值最高，”养殖”其次，”中国”最低。（如果还计算”的”字的TF-IDF，那将是一个极其接近0的值。）所以，如果只选择一个词，”蜜蜂”就是这篇文章的关键词。</p>
-<h1 id="三、案例实战：基于TF-IDF的关键词提取"><a href="#三、案例实战：基于TF-IDF的关键词提取" class="headerlink" title="三、案例实战：基于TF-IDF的关键词提取"></a>三、案例实战：基于TF-IDF的关键词提取</h1><h3 id="1-基于python-mapreduce的TF-IDF计算"><a href="#1-基于python-mapreduce的TF-IDF计算" class="headerlink" title="1. 基于python mapreduce的TF-IDF计算"></a>1. 基于python mapreduce的TF-IDF计算</h3><p>开发步骤如下：</p>
+<p>@[TOC]</p>
+<h1 id="一、Java虚拟机内存模型"><a href="#一、Java虚拟机内存模型" class="headerlink" title="一、Java虚拟机内存模型"></a>一、Java虚拟机内存模型</h1><p>Java虚拟机在执行Java程序的过程中会把它所管理的内存划分为若干个不同的数据区域，这些数据区域可以分为两个部分：一部分是<strong>线程共享</strong>的，一部分则是<strong>线程私有</strong>的。其中，线程共享的数据区包括<strong>方法区</strong>和<strong>堆</strong>，线程私有的数据区包括<strong>虚拟机栈</strong>、<strong>本地方法栈</strong>和<strong>程序计数器</strong>。如下图所示<br><img src="https://img-blog.csdnimg.cn/20200310160652447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200310165422141.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<blockquote>
+<p><strong>关于永久代</strong><br>jdk1.6及之前：常量池分配在永久代 ；<br>jdk1.7：有，但已经逐步“去永久代” ；<br>jdk1.8及之后：无(java.lang.OutOfMemoryError: PermGen space,这种错误将不会出现在JDK1.8中 )；</p>
+</blockquote>
+<h2 id="1-线程私有区"><a href="#1-线程私有区" class="headerlink" title="1. 线程私有区"></a>1. 线程私有区</h2><p>线程私有的数据区 包括 <strong>程序计数器</strong>、 <strong>虚拟机栈</strong> 和 <strong>本地方法栈</strong> 三个区域。</p>
+<h3 id="1-1程序计数器"><a href="#1-1程序计数器" class="headerlink" title="1.1程序计数器"></a>1.1程序计数器</h3><blockquote>
+<p>知识点：线程是CPU调度的基本单位。在多线程情况下，当线程数超过CPU数量或CPU内核数量时，线程之间就要根据时间片轮询抢夺CPU时间资源。也就是说，<strong>在任何一个确定的时刻，一个处理器都只会执行一条线程中的指令</strong>。因此，为了线程切换后能够恢复到正确的执行位置，<strong>每条线程都需要一个独立的程序计数器去记录其正在执行的字节码指令地址。</strong></p>
+</blockquote>
+<p>1）程序计数器占较小的一块内存空间，可以看作是当前线程所执行的字节码的行号指示器。<br>　–如果线程正在执行的是一个 Java 方法，计数器记录的是正在执行的字节码指令的地址；<br>　–如果正在执行的是 Native 方法，则计数器的值为空。<br>2）程序计数器是唯一一个没有规定任何 OutOfMemoryError 的区域。</p>
+<h3 id="1-2虚拟机栈"><a href="#1-2虚拟机栈" class="headerlink" title="1.2虚拟机栈"></a>1.2虚拟机栈</h3><p>虚拟机栈描述的是<strong>Java方法执行的内存模型</strong>，生命周期与线程相同，每个方法在执行的时候都会创建一个栈帧，用于<strong>存储局部变量表、操作数栈、动态链接、方法出口</strong>等信息，而且每个方法从调用直至完成的过程，对应一个栈帧在虚拟机栈中入栈到出栈的过程。其中，局部变量表主要存放一些基本类型的变量（int, short, long, byte, float, double, boolean, char）和 对象句柄，它们可以是方法参数，也可以是方法的局部变量。<strong>虚拟机栈有两种异常情况：StackOverflowError 和 OutOfMemoryError</strong>。<br>1）StackOverflowError情况：一个线程拥有一个自己的栈，（-Xss 参数可以设置虚拟机栈大小），若线程请求的栈深度大于虚拟机允许的深度，则抛出 StackOverFlowError 异常。<br>2）OutOfMemoryError情况：栈的大小可以是固定的，也可以是动态扩展的，若虚拟机栈可以动态扩展（大多数虚拟机都可以），但扩展时无法申请到足够的内存(比如没有足够的内存为一个新创建的线程分配栈空间时)，则抛出 OutofMemoryError 异常。<br>下图为栈帧结构图：<br><img src="https://img-blog.csdnimg.cn/20200310162358276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="1-3本地方法栈"><a href="#1-3本地方法栈" class="headerlink" title="1. 3本地方法栈"></a>1. 3本地方法栈</h3><p>本地方法栈与Java虚拟机栈非常相似，但是也有区别之处。<br>区别：虚拟机栈<strong>为虚拟机执行 Java 方法服务</strong>，而本地方法栈<strong>为虚拟机执行 Native 方法服务</strong>。<br>相同：与虚拟机栈一样，本地方法栈区域也会抛出 StackOverflowError 和 OutOfMemoryError 异常。</p>
+<h2 id="2-线程共享区"><a href="#2-线程共享区" class="headerlink" title="2.线程共享区"></a>2.线程共享区</h2><p>线程共享的数据区具体包括 <strong>Java堆</strong> 和 <strong>方法区</strong> 两个区域。</p>
+<h3 id="2-1-Java堆"><a href="#2-1-Java堆" class="headerlink" title="2.1 Java堆"></a>2.1 Java堆</h3><p>Java 堆的唯一目的就是<strong>存放对象实例</strong>。类的对象从中分配空间，这些对象通过new、newarray、 anewarray 和 multianewarray 等指令建立，它们不需要程序代码来显式的释放。由于Java堆唯一目的就是用来存放对象实例，因此其也是垃圾收集器管理的主要区域，故也称为称为 <strong>GC堆</strong>。</p>
+<blockquote>
+<p>　<strong>知识点</strong>：从内存回收的角度看，目前垃圾收集器基本都采用<strong>分代收集算法</strong>，所以为了方便垃圾回收Java堆还可以分为 新生代 和 老年代 。新生代用于存放刚创建的对象以及年轻的对象，如果对象一直没有被回收，生存得足够长，对象就会被移入老年代。新生代又可进一步细分为 eden、survivorSpace0 和 survivorSpace1。刚创建的对象都放入新生代（大对象除外）都至少经过一次GC并幸存。如果幸存对象经过一定时间仍存在，则进入老年代。<br><img src="https://img-blog.csdnimg.cn/20200310164218620.png" alt="在这里插入图片描述"></p>
+</blockquote>
+<p>注意：<strong>Java堆可以处于物理上不连续的内存空间中，只要逻辑上是连续的即可</strong>。而且，Java堆可通过-Xmx(最大堆容量) 和 -Xms(最小堆容量)进行容量限制。如果在堆中没有内存完成实例分配，并且堆也无法再拓展时，将会抛出 OutOfMemoryError 异常。</p>
+<h4 id="TLAB-（线程私有分配缓冲区"><a href="#TLAB-（线程私有分配缓冲区" class="headerlink" title="TLAB （线程私有分配缓冲区)"></a>TLAB （线程私有分配缓冲区)</h4><p>　　Sun Hotspot JVM 为了提升对象内存分配的效率，<strong>对于所创建的线程都会分配一块独立的空间 TLAB</strong>（Thread Local Allocation Buffer），其大小由JVM根据运行的情况计算而得。在TLAB上分配对象时不需要加锁(相对于CAS配上失败重试方式 )，因此JVM在给线程的对象<strong>分配内存时会尽量的在TLAB上分配</strong>，在这种情况下JVM中分配对象内存的性能和C基本是一样高效的，但如果<strong>对象过大的话则仍然是直接使用堆空间分配</strong>。</p>
+<blockquote>
+<p>虚拟机为新生对象分配内存时，需要考虑修改指针 (该指针用于划分内存使用空间和空闲空间)时的线程安全问题，因为存在可能出现正在给对象A分配内存，指针还未修改，对象B又同时使用原来的指针分配内存的情况。<strong>TLAB的存在就是为了解决线程安全问题</strong>：每个线程在Java堆中预先分配一小块内存TLAB，哪个线程需要分配内存就在自己的TLAB上进行分配，若TLAB用完并分配新的TLAB时，再加同步锁定，这样就大大提升了对象内存分配的效率。</p>
+</blockquote>
+<h3 id="2-2-方法区"><a href="#2-2-方法区" class="headerlink" title="2.2 方法区"></a>2.2 方法区</h3><p>方法区也可以处于物理上不连续的内存空间中，用于存储已被虚拟机加载的 <strong>类信息、常量、静态变量、即时编译器编译后的代码</strong>等数据。根据Java虚拟机规范的规定，当方法区无法满足内存分配的需求时，将抛出 OutOfMemoryError 异常。</p>
+<h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h4><p>运行时常量池（Runtime Constant Pool）是方法区的一部分，用于存放编译期生成的各种 <strong>字面量 和 符号引用</strong>。<br>    1）字面量：比较接近Java语言层次的<strong>常量</strong>概念，如文本字符串、被声明为final的常量值等；<br>    2）符号引用：属于编译原理方面的概念，包括以下三类常量：<strong>类和接口的全限定名</strong>、<strong>字段的名称和描述符</strong> 和 <strong>方法的名称和描述符</strong>。因为运行时常量池（Runtime Constant Pool）是方法区的一部分，那么当常量池无法再申请到内存时也会抛出 OutOfMemoryError 异常。</p>
+<blockquote>
+<p>运行时常量池相对于Class文件常量池的一个重要特征是<strong>具备动态性</strong>。Java语言并不要求常量一定只有编译期才能产生，运行期间也可能将新的常量放入池中，比如字符串的手动入池方法intern()。</p>
+</blockquote>
+<h3 id="2-3-Java堆与方法区的区别"><a href="#2-3-Java堆与方法区的区别" class="headerlink" title="2.3 Java堆与方法区的区别"></a>2.3 Java堆与方法区的区别</h3><p><strong>【Java堆在堆内存中，方法区在非堆内存中】</strong>：Java堆是 Java代码可及的内存，是留给开发人员使用的；而非堆（Non-Heap）是JVM留给自己用的，方法区、JVM内部处理或优化所需的内存 (如JIT编译后的代码缓存)、每个类结构 (如运行时常量池、字段和方法数据)以及方法和构造方法的代码都在非堆内存中。</p>
+<h3 id="2-4-方法区的回收"><a href="#2-4-方法区的回收" class="headerlink" title="2.4 方法区的回收"></a>2.4 方法区的回收</h3><p>方法区的内存回收目标主要是针对 <strong>常量池的回收</strong> 和 <strong>对类型的卸载</strong>。</p>
+<blockquote>
+<p>举例说明：回收废弃常量与回收Java堆中的对象非常类似。以常量池中字面量的回收为例，假如一个字符串“abc”已经进入了常量池中，但是当前系统没有任何一个String对象是叫做“abc”的，换句话说是<strong>没有任何String对象引用常量池中的“abc”常量，也没有其他地方引用了这个字面量，如果在这时候发生内存回收，而且必要的话，这个“abc”常量就会被系统“请”出常量池</strong>。常量池中的其他类（接口）、方法、字段的符号引用也与此类似。</p>
+<p> 无用类的判断比废弃常量的判断要复杂些，类需要同时满足下面3个条件才能算是“无用的类”：</p>
 <ul>
-<li>Step 1：原始数据预处理</li>
-<li>Step 2：产生IDF词表</li>
-<li>Step 3：进行TF-IDF计算，计算单词在文章中的权重</li>
+<li>该类所有的实例都已经被回收，也就是Java堆中不存在该类的任何实例；</li>
+<li>加载该类的ClassLoader已经被回收；</li>
+<li>该类对应的 java.lang.Class 对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。</li>
 </ul>
-<p>1）将所有数据文件内容汇总到一个数据文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"># Step1 原始数据预处理</span><br><span class="line">import os</span><br><span class="line">import sys</span><br><span class="line">import math</span><br><span class="line"></span><br><span class="line">file_path_dir &#x3D; &#39;..&#x2F;DataSet&#x2F;it.seg.cln&#39;</span><br><span class="line">raw_path &#x3D; &#39;.&#x2F;raw.data&#39;</span><br><span class="line">idf_path &#x3D; &#39;.&#x2F;idf.data&#39;</span><br><span class="line"></span><br><span class="line">##读文件操作</span><br><span class="line">def read_file(f):</span><br><span class="line">    fd &#x3D; open(f, &#39;r&#39;, encoding&#x3D;&#39;utf-8&#39;)</span><br><span class="line">    return fd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">file_raw_out &#x3D; open(raw_path, &#39;w&#39;, encoding&#x3D;&#39;utf-8&#39;)</span><br><span class="line"></span><br><span class="line"># 遍历整个原始数据目录，将零散的文章整合到一个文件中，便于后续数据处理</span><br><span class="line">file_name &#x3D; 0</span><br><span class="line">for fd in os.listdir(file_path_dir):</span><br><span class="line">    file_path &#x3D; file_path_dir + &#39;&#x2F;&#39; + fd #文件路径</span><br><span class="line">    content_list &#x3D; []</span><br><span class="line"></span><br><span class="line">    file_fd &#x3D; read_file(file_path)</span><br><span class="line">    for line in file_fd:</span><br><span class="line">        content_list.append(line.strip())</span><br><span class="line">#&#39; &#39;.join(content_list)</span><br><span class="line">    content &#x3D; &#39;\t&#39;.join([str(file_name),&#39;&#39;.join (content_list)]) + &#39;\n&#39;</span><br><span class="line">    #print (content)</span><br><span class="line">    #print(type(&#39;\t&#39;.join(content_list)))</span><br><span class="line">    file_raw_out.writelines(content)</span><br><span class="line"></span><br><span class="line">    file_name +&#x3D; 1</span><br><span class="line">print(&quot;文件个数：&quot;,file_name)</span><br></pre></td></tr></table></figure>
-<p>raw.data(汇总数据文件，键值对格式)的内容为:<br><img src="https://img-blog.csdnimg.cn/20200520090545198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>2) 对所有文章按照一定规律进行切分(map过程)<br>对文章进行统计，求出IDF(reduce过程)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">#step2 产生产生IDF词表</span><br><span class="line">docs_count &#x3D; file_name</span><br><span class="line">wc_tulist &#x3D; []</span><br><span class="line">with open(raw_path, &#39;r&#39;, encoding&#x3D;&#39;utf-8&#39;) as fd:</span><br><span class="line">    for line in fd:</span><br><span class="line">        #遍历每一篇文章，文章&#x3D;line</span><br><span class="line">        ss &#x3D; line.strip().split(&#39;\t&#39;)</span><br><span class="line">        #如果分割每篇文章后的长度不是2，则表示这篇文章格式不是我们需要的，我们要的是 【序号\t内容】格式</span><br><span class="line">        if len(ss)!&#x3D;2:</span><br><span class="line">            continue</span><br><span class="line">            </span><br><span class="line">        #对文章解析，区分文章序号和文章内容 </span><br><span class="line">        file_number,file_content &#x3D; ss</span><br><span class="line">        #对文章的内容进行切词，内容已经按照空格切好词了，所以按空格做split切割</span><br><span class="line">        word_list &#x3D; file_content.strip().split(&#39; &#39;)</span><br><span class="line">        #print(&quot;word_list:&quot;,word_list)</span><br><span class="line">        </span><br><span class="line">        #去重操作，对于IDF，只需要关注词在文章中是否出现，不关心出现次数</span><br><span class="line">        word_set &#x3D; set(word_list)</span><br><span class="line">        #print(&quot;word_set:&quot;,word_set)</span><br><span class="line">        </span><br><span class="line">        # 对于每个关键词，打一个标记“1”，来标识该次出现过</span><br><span class="line">        for word in word_set:</span><br><span class="line">            wc_tulist.append((word,&#39;1&#39;))</span><br><span class="line">            #print(&quot;wc_tulist:&quot;,wc_tulist)</span><br><span class="line">            </span><br><span class="line"> #将内容输出到指定文件中.&#x2F;idf.data</span><br><span class="line">file_idf_out &#x3D; open(idf_path,&#39;w&#39;,encoding&#x3D;&#39;utf-8&#39;)</span><br><span class="line"></span><br><span class="line">#按照词的字典序进行排序</span><br><span class="line">wc_sort_tulist &#x3D; sorted(wc_tulist,key&#x3D;lambda x: x[0])</span><br><span class="line">#print(wc_sort_tulist)</span><br><span class="line">current_word &#x3D; None</span><br><span class="line">sum &#x3D; 0</span><br><span class="line">for tu in wc_sort_tulist:  </span><br><span class="line">    word, val &#x3D; tu</span><br><span class="line"></span><br><span class="line">    if current_word &#x3D;&#x3D; None:</span><br><span class="line">        current_word &#x3D; word</span><br><span class="line"></span><br><span class="line">    if current_word !&#x3D; word:</span><br><span class="line">        # 通过idf计算公式，得到每个关键词的idf score</span><br><span class="line">        idf &#x3D; math.log(float(docs_count) &#x2F; (float(sum) + 1.0))</span><br><span class="line">        content &#x3D; &#39;\t&#39;.join([current_word, str(idf)]) + &#39;\n&#39;</span><br><span class="line">        file_idf_out.write(content)</span><br><span class="line">        current_word &#x3D; word</span><br><span class="line">        sum &#x3D; 0</span><br><span class="line"></span><br><span class="line">    sum +&#x3D; int(val)</span><br><span class="line"></span><br><span class="line">#反问档频率(IDF) &#x3D; log(语料库中文章总数&#x2F;(包含该单词的文章数+1))</span><br><span class="line">idf &#x3D; math.log(float(docs_count) &#x2F; (float(sum) + 1.0))</span><br><span class="line"></span><br><span class="line"># content格式是【words\t0.1212\n】</span><br><span class="line">content &#x3D; &#39;\t&#39;.join([current_word, str(idf)]) + &#39;\n&#39;</span><br><span class="line">file_idf_out.write(content)</span><br><span class="line">#print(content)</span><br><span class="line">file_idf_out.close()</span><br></pre></td></tr></table></figure>
-<p>idf.data内容：<br><img src="https://img-blog.csdnimg.cn/20200520090448619.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>3) 求出最终的TF-IDF</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"># Step3 计算TF-IDF来提取文章中的关键词(文章单词的权重)</span><br><span class="line">input_str &#x3D; &#39;我们 科技 带来 的 科技 希望 我们 差&#39;</span><br><span class="line"></span><br><span class="line">token_idf_dict &#x3D; &#123;&#125;</span><br><span class="line"># 将idf字典加载到内存</span><br><span class="line">with open(idf_path, &#39;r&#39;, encoding&#x3D;&#39;utf-8&#39;) as fd:</span><br><span class="line">    for line in fd:</span><br><span class="line">        ss &#x3D; line.strip().split(&#39;\t&#39;)</span><br><span class="line">        if len(ss) !&#x3D; 2:</span><br><span class="line">            continue</span><br><span class="line">        token, idf_score &#x3D; ss</span><br><span class="line">        token_idf_dict[token] &#x3D; idf_score</span><br><span class="line"></span><br><span class="line">def get_tfidf(input_str):</span><br><span class="line">    token_dict &#x3D; &#123;&#125;</span><br><span class="line">    # 对输入字符串的每一个词，计算tf</span><br><span class="line">    ##计算单词在该文章出现次数</span><br><span class="line">    for t in input_str.strip().split(&#39; &#39;):</span><br><span class="line">        if t not in token_dict:</span><br><span class="line">            token_dict[t] &#x3D; 1</span><br><span class="line">        else:</span><br><span class="line">            token_dict[t] +&#x3D; 1</span><br><span class="line">    print(token_dict)</span><br><span class="line">    # res_tu_list &#x3D; [] TF-IDF&#x3D;TF*IDF</span><br><span class="line">    for k, v in token_dict.items():</span><br><span class="line">        tf_score &#x3D; token_dict[k]</span><br><span class="line">        if k not in token_idf_dict:</span><br><span class="line">            continue</span><br><span class="line">        idf_score &#x3D; token_idf_dict[k]</span><br><span class="line">        tf_idf &#x3D; tf_score * float(idf_score)</span><br><span class="line">        yield (k, tf_idf)</span><br><span class="line"></span><br><span class="line">for k, v in get_tfidf(input_str):</span><br><span class="line">    print(k, v)</span><br></pre></td></tr></table></figure>
-<p>执行结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#39;我们&#39;: 2, &#39;科技&#39;: 2, &#39;带来&#39;: 1, &#39;的&#39;: 1, &#39;希望&#39;: 1, &#39;差&#39;: 1&#125;</span><br><span class="line">我们 2.240920456387959</span><br><span class="line">科技 4.378793497431945</span><br><span class="line">带来 1.4617633920848578</span><br><span class="line">的 0.0059113472630571645</span><br><span class="line">希望 1.9419885754021315</span><br><span class="line">差 3.013572191682322</span><br></pre></td></tr></table></figure>
-<p>分析：“科技”的TF-IDF值最高，代表该文章的关键词；“的”的TF-IDF值最低，表示该词是最常用的词，也叫”停用词”（stop words）。</p>
-<p>文档库数据集在这：<a href="https://github.com/AthenaHe/BigData-Studies.git" target="_blank" rel="noopener">下载地址</a>或者这个<a href="https://download.csdn.net/download/weixin_34566605/12439657" target="_blank" rel="noopener">下载地址</a></p>
-<p>未完待续。。。</p>
-<p>参考文档：<br><a href="https://blog.csdn.net/u013982921/article/details/80964335" target="_blank" rel="noopener">TF-IDF原理及使用</a><br><a href="http://www.ruanyifeng.com/blog/2013/03/tf-idf.html" target="_blank" rel="noopener">TF-IDF与余弦相似性的应用（一）：自动提取关键词</a><br><a href="http://www.ruanyifeng.com/blog/2013/03/cosine_similarity.html" target="_blank" rel="noopener">TF-IDF与余弦相似性的应用（二）：找出相似文章</a></p>
+</blockquote>
+<h1 id="二-Java对象在虚拟机中的创建与访问定位"><a href="#二-Java对象在虚拟机中的创建与访问定位" class="headerlink" title="二. Java对象在虚拟机中的创建与访问定位"></a>二. Java对象在虚拟机中的创建与访问定位</h1><p>下面以最流行的HotSpot虚拟机以及常用的内存区域Java堆为例来探讨在虚拟机中对象的创建和对象的访问等问题。</p>
+<h2 id="1-对象在虚拟机中的创建过程"><a href="#1-对象在虚拟机中的创建过程" class="headerlink" title="1. 对象在虚拟机中的创建过程"></a>1. 对象在虚拟机中的创建过程</h2><p><strong>【(1)类加载，(2)分配内存】</strong><br>   (1).<strong>检查虚拟机是否加载了所要new的类</strong>，若没加载，则首先执行相应的类加载过程。虚拟机遇到new指令时，首先去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个引用代表的类是否已经被加载、解析和初始化过。<br>   (2). 在类加载检查通过后，对象所需内存的大小在类加载完成后便可完全确定，虚拟机就会<strong>为新生对象分配内存</strong>。一般来说，根据Java堆中内存是否绝对规整，内存的分配有两种方式：</p>
+<ul>
+<li><strong>指针碰撞</strong>：如果Java堆中内存绝对规整，所有用过的内存放在一边，空闲内存放在另一边，中间一个指针作为分界点的指示器，那分配内存就仅仅是把那个指针向空闲空间那边挪动一段与对象大小相同的距离。<ul>
+<li><strong>空闲列表</strong>：如果Java堆中内存并不规整，那么虚拟机就需要维护一个列表，记录哪些内存块是可用的，以便在分配的时候从列表中找到一块足够大的空间划分给对象实例，并更新列表上的记录。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>除了如何划分可用空间之外，还需要考虑修改指针<br>(该指针用于划分内存使用空间和空闲空间)时的线程安全问题，因为存在可能出现正在给对象A分配内存，指针还未修改，对象B又同时使用原来的指针分配内存的情况。解决这个问题有两种方案：<br>–对分配内存空间的动作进行同步处理：采用<strong>CAS+失败重试</strong>的方式保证更新操作的原子性；<br>–把内存分配的动作按照线程划分的不同的空间中：每个线程在Java堆中预先分配一小块内存，称为<strong>本地线程分配缓冲（TLAB）</strong>【具体见上面的2.1-&gt;TLAB介绍】，哪个线程要分配内存，就在自己的TLAB上分配，如果TLAB用完并分配新的TLAB时，再加同步锁定。</p>
+</blockquote>
+<p>(3). 内存分配完成后，虚拟机需要将分配到的内存空间都<strong>初始化为零值</strong>。如果使用TLAB，也可以提前到TLAB分配时进行。这一步操作<strong>保证了对象的实例字段在Java代码中可以不赋初值就直接使用</strong>，程序能访问到这些字段的数据类型所对应的零值。<br>(4). 在上面的工作完成之后，从<strong>虚拟机的角度来看，一个新的对象已经产生</strong>了，但从<strong>Java程序的视角来看，对象的创建才刚刚开始</strong>，此时会执行<init>方法把对象按照程序员的意愿进行初始化，从而产生一个真正可用的对象。</p>
+<h2 id="2-对象在虚拟机中的访问定位"><a href="#2-对象在虚拟机中的访问定位" class="headerlink" title="2.对象在虚拟机中的访问定位"></a>2.对象在虚拟机中的访问定位</h2><p>创建对象是为了使用对象，我们的Java程序通过栈上的reference数据来操作堆上的具体对象。在虚拟机规范中，reference类型中只规定了一个指向对象的引用，并没有定义这个引用使用什么方式去定位、访问堆中的对象的具体位置。目前的主流的访问方式有<strong>使用句柄访问</strong>和<strong>直接指针访问</strong>两种。<br>1）<strong>句柄访问</strong>：Java堆中会划分出一块内存作为句柄池，栈中的reference指向对象的句柄地址，句柄中包含了<strong>对象实例数据</strong>和<strong>类型数据</strong>各自的具体地址信息，如下图所示。<br><img src="https://img-blog.csdnimg.cn/20200310184918475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>使用句柄访问的好处：reference中存储的是稳定的句柄地址，对象被移动（垃圾收集时移动对象是非常普遍的行为）时只会改变句柄中的实例数据指针，reference本身不需要修改；</p>
+<p>2）<strong>直接指针访问</strong>：reference中存储的就是对象地址。<br><img src="https://img-blog.csdnimg.cn/20200310185225470.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>使用直接指针访问的好处：速度快，节省了一次指针定位的时间开销。</p>
 
       
     </div>
@@ -460,7 +482,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
         </div>
       
@@ -473,14 +495,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2020/06/01/Java%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0-%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B%E3%80%81%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" rel="next" title="Java知识笔记--用户线程、守护线程">
+                <i class="fa fa-chevron-left"></i> Java知识笔记--用户线程、守护线程
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/05/31/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84Docker%E6%80%BB%E7%BB%93/" rel="prev" title="超详细的Docker总结">
-                超详细的Docker总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/06/01/Java%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0-Java%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0/" rel="prev" title="Java知识笔记--Java线程创建方式、线程池">
+                Java知识笔记--Java线程创建方式、线程池 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -642,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、TF-IDF算法介绍"><span class="nav-number">1.</span> <span class="nav-text">一、TF-IDF算法介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、举例说明"><span class="nav-number">2.</span> <span class="nav-text">二、举例说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、案例实战：基于TF-IDF的关键词提取"><span class="nav-number">3.</span> <span class="nav-text">三、案例实战：基于TF-IDF的关键词提取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基于python-mapreduce的TF-IDF计算"><span class="nav-number">3.0.1.</span> <span class="nav-text">1. 基于python mapreduce的TF-IDF计算</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Java虚拟机内存模型"><span class="nav-number">1.</span> <span class="nav-text">一、Java虚拟机内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-线程私有区"><span class="nav-number">1.1.</span> <span class="nav-text">1. 线程私有区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1程序计数器"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1程序计数器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2虚拟机栈"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2虚拟机栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3本地方法栈"><span class="nav-number">1.1.3.</span> <span class="nav-text">1. 3本地方法栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-线程共享区"><span class="nav-number">1.2.</span> <span class="nav-text">2.线程共享区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Java堆"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 Java堆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TLAB-（线程私有分配缓冲区"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">TLAB （线程私有分配缓冲区)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-方法区"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#运行时常量池"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">运行时常量池</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Java堆与方法区的区别"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 Java堆与方法区的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-方法区的回收"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 方法区的回收</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-Java对象在虚拟机中的创建与访问定位"><span class="nav-number">2.</span> <span class="nav-text">二. Java对象在虚拟机中的创建与访问定位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-对象在虚拟机中的创建过程"><span class="nav-number">2.1.</span> <span class="nav-text">1. 对象在虚拟机中的创建过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-对象在虚拟机中的访问定位"><span class="nav-number">2.2.</span> <span class="nav-text">2.对象在虚拟机中的访问定位</span></a></li></ol></li></ol></div>
             
 
           </div>

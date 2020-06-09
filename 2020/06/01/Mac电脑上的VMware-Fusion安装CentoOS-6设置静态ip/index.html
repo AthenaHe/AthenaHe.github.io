@@ -400,9 +400,9 @@
 <p>其中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">range 192.168.8.128 192.168.8.254;是虚拟机可分配的地址范围</span><br><span class="line">netmask 255.255.255.0  是子网掩码</span><br><span class="line">option broadcast-address 192.168.8.255; 广播地址</span><br><span class="line">option routers 192.168.8.2; 网关</span><br></pre></td></tr></table></figure>
 
-<p>2、$ <strong>cd /etc/sysconfig/network-scripts/</strong><br>找到网卡配置文件，并打开（不同linux系统配置文件名字可能不一样，但都是ifcfg-开头的）<br>可以先ifconfig查看一下系统的网卡名称。我的是eth0<br><img src="https://img-blog.csdnimg.cn/20190819163632711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="ifconfig"><br><img src="https://img-blog.csdnimg.cn/20190819163708209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt=" ">$ <strong>sudo vim ifcfg-eth0</strong><br>修改并添加如下内容：<br><img src="https://img-blog.csdnimg.cn/20190819163802700.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>[root@data1 ~]# <strong>service network restart</strong><br><img src="https://img-blog.csdnimg.cn/20190819163838985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<pre><code>注意：重启网络之前，看看连接网络适配器是否勾选了！一定要勾选</code></pre><p><img src="https://img-blog.csdnimg.cn/20190819163900434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>2、$ <strong>cd /etc/sysconfig/network-scripts/</strong><br>找到网卡配置文件，并打开（不同linux系统配置文件名字可能不一样，但都是ifcfg-开头的）<br>可以先ifconfig查看一下系统的网卡名称。我的是eth0<br><img src="https://img-blog.csdnimg.cn/20190819163632711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="ifconfig" loading="lazy"><br><img src="https://img-blog.csdnimg.cn/20190819163708209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt=" " loading="lazy">$ <strong>sudo vim ifcfg-eth0</strong><br>修改并添加如下内容：<br><img src="https://img-blog.csdnimg.cn/20190819163802700.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<p>[root@data1 ~]# <strong>service network restart</strong><br><img src="https://img-blog.csdnimg.cn/20190819163838985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<pre><code>注意：重启网络之前，看看连接网络适配器是否勾选了！一定要勾选</code></pre><p><img src="https://img-blog.csdnimg.cn/20190819163900434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
 
       
     </div>
@@ -532,7 +532,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

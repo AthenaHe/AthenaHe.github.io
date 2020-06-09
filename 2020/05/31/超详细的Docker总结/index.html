@@ -419,9 +419,9 @@
 </li>
 </ul>
 <blockquote>
-<p><strong>UnionFS（联合文件系统）</strong><br>Union文件系统（UnionFS）是一种分层、轻量级并且高性能的文件系统，它支持==对文件系统的修改作为一次提交来一层层的叠加==， 同时可以将不同目录挂载到同一个虚拟文件系统下(unite several directories into a single virtual filesystem)。Union 文件系统是 Docker镜像的基础。镜像可以通过分层来进行继承，基于基础镜像（没有父镜像），可以制作各种具体的应用镜像。<img src="https://img-blog.csdnimg.cn/20200523173007610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>UnionFS特性</strong>：一次同时加载多个文件系统，但从外面看起来，只能看到一个文件系统，联合加载会把各层文件系统叠加起来，这样最终的文件系统会包含所有底层的文件和目录 </p>
+<p><strong>UnionFS（联合文件系统）</strong><br>Union文件系统（UnionFS）是一种分层、轻量级并且高性能的文件系统，它支持==对文件系统的修改作为一次提交来一层层的叠加==， 同时可以将不同目录挂载到同一个虚拟文件系统下(unite several directories into a single virtual filesystem)。Union 文件系统是 Docker镜像的基础。镜像可以通过分层来进行继承，基于基础镜像（没有父镜像），可以制作各种具体的应用镜像。<img src="https://img-blog.csdnimg.cn/20200523173007610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br><strong>UnionFS特性</strong>：一次同时加载多个文件系统，但从外面看起来，只能看到一个文件系统，联合加载会把各层文件系统叠加起来，这样最终的文件系统会包含所有底层的文件和目录 </p>
 </blockquote>
-<p> <strong>Docker镜像加载原理</strong><br> docker的镜像实际上由一层一层的文件系统组成，这种层级的文件系统UnionFS。<br>bootfs(boot file system)主要包含bootloader和kernel, bootloader主要是引导加载kernel, Linux刚启动时会加载bootfs文件系统， <strong>在Docker镜像的最底层是bootfs</strong>。 这一层与我们典型的Linux/Unix系统是一样的，包含boot加载器和内核。当boot加载完成之后整个内核就都在内存中了，此时内存的使用权已由bootfs转交给内核，此时系统也会卸载bootfs。<br>rootfs (root file system) ，在bootfs之上 。包含的就是典型 Linux 系统中的 /dev, /proc, /bin, /etc 等标准目录和文件。rootfs就是各种不同的操作系统发行版，比如Ubuntu，Centos等等。<br><img src="https://img-blog.csdnimg.cn/2020052317335657.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p> <strong>Docker镜像加载原理</strong><br> docker的镜像实际上由一层一层的文件系统组成，这种层级的文件系统UnionFS。<br>bootfs(boot file system)主要包含bootloader和kernel, bootloader主要是引导加载kernel, Linux刚启动时会加载bootfs文件系统， <strong>在Docker镜像的最底层是bootfs</strong>。 这一层与我们典型的Linux/Unix系统是一样的，包含boot加载器和内核。当boot加载完成之后整个内核就都在内存中了，此时内存的使用权已由bootfs转交给内核，此时系统也会卸载bootfs。<br>rootfs (root file system) ，在bootfs之上 。包含的就是典型 Linux 系统中的 /dev, /proc, /bin, /etc 等标准目录和文件。rootfs就是各种不同的操作系统发行版，比如Ubuntu，Centos等等。<br><img src="https://img-blog.csdnimg.cn/2020052317335657.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
 <blockquote>
 <p>问：平时我们安装进虚拟机的CentOS都是好几个G，为什么docker才200M左右？<br>答：对于一个精简的OS，rootfs可以很小，只需要包括最基本的命令、工具和程序库就可以了，因为底层直接用Host的kernel，自己只需要提供 rootfs 就行了。由此可见对于不同的linux发行版, bootfs基本是一致的, rootfs会有差别, 因此不同的发行版可以公用bootfs。  </p>
 </blockquote>
@@ -429,7 +429,7 @@
 <pre><code>问：为什么Docker镜像要采用这种分层结构呢？</code></pre><p>答： 最大的一个好处就是 - ==共享资源==<br>    比如：有多个镜像都从相同的 base 镜像构建而来，那么宿主机只需在磁盘上保存一份base镜像，同时内存中也只需加载一份 base 镜像，就可以为所有容器服务了。而且镜像的每一层都可以被共享。 </p>
 </blockquote>
 <blockquote>
-<p>问： Docker镜像特点是什么？<br>答： Docker镜像都是==只读==的。当容器启动时，一个新的可写层被加载到镜像顶部。这一层通常被称作“容器层”，容器层之下的都叫“镜像层”。<strong>镜像可以用来创建Docker容器，==一个镜像可以创建很多容器==。</strong><br><img src="https://img-blog.csdnimg.cn/20200523195440168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>问： Docker镜像特点是什么？<br>答： Docker镜像都是==只读==的。当容器启动时，一个新的可写层被加载到镜像顶部。这一层通常被称作“容器层”，容器层之下的都叫“镜像层”。<strong>镜像可以用来创建Docker容器，==一个镜像可以创建很多容器==。</strong><br><img src="https://img-blog.csdnimg.cn/20200523195440168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
 </blockquote>
 <h3 id="Container（容器）"><a href="#Container（容器）" class="headerlink" title="Container（容器）"></a>Container（容器）</h3><ul>
 <li>容器是镜像创建的运行实例。它可以被启动、开始、停止、删除。每个容器都是互相隔离的，保证安全的平台。</li>
@@ -443,7 +443,7 @@
 <blockquote>
 <p>仓库分为<strong>公开仓库</strong>和<strong>私有仓库</strong>两种形式。最大的公开仓库是<a href="https://hub.docker.com/" target="_blank" rel="noopener">Docker Hub</a>,存放了大量镜像供用户下载。国内的公开仓库包括阿里云、网易云等等。</p>
 </blockquote>
-<p><strong>Docker架构图</strong><br>Docker使用C/S架构，Client 通过接口与Server进程通信实现容器的构建，运行和发布。client和server可以运行在同一台集群，也可以通过跨主机实现远程通信。<img src="https://img-blog.csdnimg.cn/20200523195940152.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>Docker架构图</strong><br>Docker使用C/S架构，Client 通过接口与Server进程通信实现容器的构建，运行和发布。client和server可以运行在同一台集群，也可以通过跨主机实现远程通信。<img src="https://img-blog.csdnimg.cn/20200523195940152.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
 <blockquote>
 <p><strong>总结：     需要正确的理解仓储/镜像/容器这几个概念</strong><br>Docker本身是一个容器运行载体或称之为管理引擎。我们把应用程序和配置依赖打包好形成一个可交付的运行环境，这个打包好的运行环境就似乎 image镜像文件。只有通过这个镜像文件才能生成 Docker 容器。image 文件可以看作是容器的模板。Docker 根据 image文件生成容器的实例。同一个 image 文件，可以生成多个同时运行的容器实例。      </p>
 <ul>
@@ -467,7 +467,7 @@
 <li><strong>安全性较弱</strong>。docker的租户root和宿主机的root等同，一旦容器内的用户权限升级为root用户，它就具备了宿主机的root权限，安全性能降低，目前容器技术还没有任何形式上的硬件隔离，这使得容器容易受到攻击。而虚拟机的租户root和宿主机的root权限是完全分离的，虚拟机利用硬件隔离技术可以防止虚拟机突破和彼此交互。</li>
 <li><strong>可管理性较差</strong>。docker的集中化管理工具还不够成熟。各种虚拟化技术都有成熟的管理工具和完备的虚拟机管理能力，比如VMware 。</li>
 </ul>
-<h2 id="4-容器技术VS虚拟机技术"><a href="#4-容器技术VS虚拟机技术" class="headerlink" title="4. 容器技术VS虚拟机技术"></a>4. 容器技术VS虚拟机技术</h2><p><img src="https://img-blog.csdnimg.cn/20200523171326441.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="4-容器技术VS虚拟机技术"><a href="#4-容器技术VS虚拟机技术" class="headerlink" title="4. 容器技术VS虚拟机技术"></a>4. 容器技术VS虚拟机技术</h2><p><img src="https://img-blog.csdnimg.cn/20200523171326441.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
 <ul>
 <li>传统虚拟机技术是虚拟出一套硬件后，在其上运行一个完整操作系统，在该系统上再运行所需应用进程；</li>
 <li>虚拟机缺点：1、资源占用多 2、冗余步骤多 3、启动慢</li>
@@ -538,18 +538,18 @@
 <li><p>设置yum源(下面的选择其中一个执行就行，我选阿里仓库，快些)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --add-repo http://download.docker.com/linux/centos/docker-ce.repo（中央仓库）</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo（阿里仓库）</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200524170111817.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200524170111817.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
 </li>
 <li><p>可以查看所有仓库中所有docker版本，并选择特定版本安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@hlearn hehuan]<span class="comment"># yum list docker-ce --showduplicates | sort -r</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/202005241701428.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/202005241701428.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
 </li>
 <li><p>安装Docker，命令：yum install docker-ce-版本号，我选的是docker-ce-18.03.1.ce，如下(期间遇到选择，选择y即可)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@hlearn hehuan]<span class="comment"># yum install docker-ce-18.03.1.ce</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200524170235914.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>docker安装完成。。。。。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200524170235914.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>docker安装完成。。。。。</p>
 </li>
 </ol>
-<h1 id="三、Docker底层运行原理"><a href="#三、Docker底层运行原理" class="headerlink" title="三、Docker底层运行原理"></a>三、Docker底层运行原理</h1><p>Docker是一个C/S结构的系统，Docker守护进程运行在主机上， 然后通过Socket连接从客户端访问，守护进程从客户端接受命令并管理运行在主机上的容器 。 容器，是一个运行时环境，就是我们前面说到的集装箱。<img src="https://img-blog.csdnimg.cn/20200523203745763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="三、Docker底层运行原理"><a href="#三、Docker底层运行原理" class="headerlink" title="三、Docker底层运行原理"></a>三、Docker底层运行原理</h1><p>Docker是一个C/S结构的系统，Docker守护进程运行在主机上， 然后通过Socket连接从客户端访问，守护进程从客户端接受命令并管理运行在主机上的容器 。 容器，是一个运行时环境，就是我们前面说到的集装箱。<img src="https://img-blog.csdnimg.cn/20200523203745763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
 <h1 id="四、Docker常用命令"><a href="#四、Docker常用命令" class="headerlink" title="四、Docker常用命令"></a>四、Docker常用命令</h1><p><a href="https://www.runoob.com/docker/docker-command-manual.html" target="_blank" rel="noopener">Docker命令大全</a><br>常用命令<br>| 命令| 解释|<br>|–|–|<br>|attach    |当前 shell 下  attach 连接指定运行镜像|<br>|build    |通过 Dockerfile 定制镜像 |<br>|commit    |提交当前容器为新的镜像 |<br>|cp    |从容器中拷贝指定文件或者目录到宿主机中|<br>|create |    创建一个新的容器，同 run，但不启动容器 |<br>|diff |    查看 docker 容器变化|<br>|events    |从 docker 服务获取容器实时事件|<br>|Exec    |在已存在的容器上运行命令 |<br>|export |    导出容器的内容流作为一个 tar 归档文件[对应 import ] |<br>|history|    展示一个镜像形成历史|<br>|images    |列出系统当前镜像|<br>|import  |    从tar包中的内容创建一个新的文件系统映像[对应export] |<br>|info|    显示系统相关信息|<br>|inspect     |查看容器详细信息 |<br>|kill    |kill 指定 docker 容器|<br>|load    |从一个 tar 包中加载一个镜像[对应 save] |<br>|login  |    注册或者登陆一个 docker 源服务器 |<br>|logout    |从当前 Docker registry 退出 |<br>|logs  |    输出当前容器日志信息 |<br>|port |    查看映射端口对应的容器内部源端口 |<br>|pause |    暂停容器 |<br>|ps |    列出容器列表|<br>|pull |    从docker镜像源服务器拉取指定镜像或者库镜像|<br>|push |    推送指定镜像或者库镜像至docker源服务器|<br>|restart |    重启运行的容器 |<br>|rm    |移除一个或者多个容器 |<br>|rmi  |    移除一个或多个镜像[无容器使用该镜像才可删除，否则需删除相关容器才可继续或 -f 强制删除] |<br>|run    |创建一个新的容器并运行一个命令 |<br>|save |    保存一个镜像为一个 tar 包[对应 load] |<br>|search |    在 docker hub 中搜索镜像|<br>|start     |启动容器 |<br>|stop     |停止容器 |<br>|tag    |给源中镜像打标签 |<br>|top   |     查看容器中运行的进程信息 |<br>|unpause |    取消暂停容器 |<br>|version     |查看 docker 版本号 |<br>|wait    |截取容器停止时的退出状态值 |</p>
 <h1 id="五、-Docker-File解析"><a href="#五、-Docker-File解析" class="headerlink" title="五、 Docker File解析"></a>五、 Docker File解析</h1><h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h2><p>dockerFile是用来构建Docker镜像的构建文件，是由一系列命令和参数构成的脚本。</p>
 <h2 id="2-构建步骤"><a href="#2-构建步骤" class="headerlink" title="2. 构建步骤"></a>2. 构建步骤</h2><ul>
@@ -574,7 +574,7 @@
 <ul>
 <li>Dockerfile是软件的原材料 </li>
 <li>Docker镜像是软件的交付品 </li>
-<li>Docker容器则可以认为是软件的运行态。<br>Dockerfile面向开发，Docker镜像成为交付标准，Docker容器则涉及部署与运维，三者缺一不可，合力充当Docker体系的基石。<br>1、Dockerfile，需要定义一个Dockerfile，Dockerfile定义了进程需要的一切东西。Dockerfile涉及的内容包括执行代码或者是文件、环境变量、依赖包、运行时环境、动态链接库、操作系统的发行版、服务进程和内核进程(当应用进程需要和系统服务和内核进程打交道，这时需要考虑如何设计namespace的权限控制)等等;<br>2、 Docker镜像，在用Dockerfile定义一个文件之后，docker build时会产生一个Docker镜像，当运行 Docker镜像时，会真正开始提供服务;<br>3、 Docker容器，容器是直接提供服务的。<br><img src="https://img-blog.csdnimg.cn/20200523214747673.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>Docker容器则可以认为是软件的运行态。<br>Dockerfile面向开发，Docker镜像成为交付标准，Docker容器则涉及部署与运维，三者缺一不可，合力充当Docker体系的基石。<br>1、Dockerfile，需要定义一个Dockerfile，Dockerfile定义了进程需要的一切东西。Dockerfile涉及的内容包括执行代码或者是文件、环境变量、依赖包、运行时环境、动态链接库、操作系统的发行版、服务进程和内核进程(当应用进程需要和系统服务和内核进程打交道，这时需要考虑如何设计namespace的权限控制)等等;<br>2、 Docker镜像，在用Dockerfile定义一个文件之后，docker build时会产生一个Docker镜像，当运行 Docker镜像时，会真正开始提供服务;<br>3、 Docker容器，容器是直接提供服务的。<br><img src="https://img-blog.csdnimg.cn/20200523214747673.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
 </ul>
 </blockquote>
 <h1 id="六、Docker容器数据卷"><a href="#六、Docker容器数据卷" class="headerlink" title="六、Docker容器数据卷"></a>六、Docker容器数据卷</h1><p>我们知道在docker中，我们程序的运行放在容器中进行，但是在docker中产生的数据，如果不通过docker commit生成新的镜像，使得数据作为镜像的一部分保存下来，那么容器删除后，数据也会跟着删除，那么如何保存这些数据呢（如何使得数据持久化呢）？<br>    为了能够保存数据在docker中我们使用卷。</p>
@@ -724,7 +724,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

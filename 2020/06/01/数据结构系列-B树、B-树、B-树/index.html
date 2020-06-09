@@ -398,12 +398,12 @@
 <blockquote>
 <p>这个网站不错： <a href="https://www.cs.usfca.edu/~galles/visualization/BTree.html" target="_blank" rel="noopener">一个可视化B树的网站</a></p>
 </blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20200301232650448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>   <strong>优点</strong>：利用平衡树的优势，保证了查询稳定性、加快了查询速度。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200301232650448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>   <strong>优点</strong>：利用平衡树的优势，保证了查询稳定性、加快了查询速度。</p>
 <p>关于B树的插入和删除操作原则要记住：<strong>在进行插入或删除操作后，一定要查看树是否满足约束条件，若不满足，则进行调整。</strong></p>
 <p><strong>B树应用场景</strong>:B树可以优化，提高磁盘读取时定位的效率。由于一棵树中任意检查一个节点需要一次磁盘的访问，所以B树避免了大量的磁盘访问；而且B树是平衡树，每个节点到叶子节点的高度都相同，保证了查询的稳定性，查询时间复杂度为O（logN）（严格意义上写为log<del>m</del>N，m为度数，N为节点数）。</p>
-<p><strong><em>B树的高度</em></strong>:T为度数（节点包含的最少子节点个数，T&gt;=2）,也叫阶数，N为总元素个数或总关键字数。<br><img src="https://img-blog.csdnimg.cn/20200301231828465.png" alt="在这里插入图片描述"></p>
-<h1 id="二、B-树"><a href="#二、B-树" class="headerlink" title="二、B+树"></a>二、B+树</h1><p>B+树是B树的变体，为了适应文件系统所需而产生的。<br><img src="https://img-blog.csdnimg.cn/20200301232705690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>B和B+树的区别：</strong><br>    1. <strong>关键字数量不同</strong>。B树有m个节点，m-1个关键字；B+树有m个关键字，有m个叶子节点，关键字只是起到索引的作用。<br>    2. <strong>存储位置不同</strong>。B树的数据存储在每个节点上，并不仅仅存储在叶子节点上；B+树中的数据都存储在叶子节点上。<br>    3. <strong>分支节点构造不同</strong>。B+树的分支节点存储关键字信息和孩子指针，也就是说内部节点仅仅包含索引信息<br>    4. <strong>查询不同</strong>。B树在找到具体数值以后就结束，而B+树则需要通过索引找到叶子节点中的数据才结束，也就是说B+树的搜索过程中走了一条从根节点到叶子节点的路径，高度相同，相对来说更稳定。<br>    5. <strong>区间访问不同</strong>。B+树的叶子节点按顺序建立起链状指针，可进行区间访问。<br>    6. <strong>B+树比B树更适合实际应用中操作系统文件索引和数据库索引</strong>。（1）B+树的磁盘读写代价更低；（2）B+树的查询更稳定</p>
-<h1 id="三、B-树"><a href="#三、B-树" class="headerlink" title="三、B*树"></a>三、B*树</h1><p>B<em>树是B+树的变体，B</em>树在分支节点中增加了指向兄弟节点的指针。B<em>树定义了非叶子节点关键字个数至少要(2/3)</em>m个，即最低使用率2/3.<br><img src="https://img-blog.csdnimg.cn/20200301232141117.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>==B * 和B+的区别== :</p>
+<p><strong><em>B树的高度</em></strong>:T为度数（节点包含的最少子节点个数，T&gt;=2）,也叫阶数，N为总元素个数或总关键字数。<br><img src="https://img-blog.csdnimg.cn/20200301231828465.png" alt="在这里插入图片描述" loading="lazy"></p>
+<h1 id="二、B-树"><a href="#二、B-树" class="headerlink" title="二、B+树"></a>二、B+树</h1><p>B+树是B树的变体，为了适应文件系统所需而产生的。<br><img src="https://img-blog.csdnimg.cn/20200301232705690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br><strong>B和B+树的区别：</strong><br>    1. <strong>关键字数量不同</strong>。B树有m个节点，m-1个关键字；B+树有m个关键字，有m个叶子节点，关键字只是起到索引的作用。<br>    2. <strong>存储位置不同</strong>。B树的数据存储在每个节点上，并不仅仅存储在叶子节点上；B+树中的数据都存储在叶子节点上。<br>    3. <strong>分支节点构造不同</strong>。B+树的分支节点存储关键字信息和孩子指针，也就是说内部节点仅仅包含索引信息<br>    4. <strong>查询不同</strong>。B树在找到具体数值以后就结束，而B+树则需要通过索引找到叶子节点中的数据才结束，也就是说B+树的搜索过程中走了一条从根节点到叶子节点的路径，高度相同，相对来说更稳定。<br>    5. <strong>区间访问不同</strong>。B+树的叶子节点按顺序建立起链状指针，可进行区间访问。<br>    6. <strong>B+树比B树更适合实际应用中操作系统文件索引和数据库索引</strong>。（1）B+树的磁盘读写代价更低；（2）B+树的查询更稳定</p>
+<h1 id="三、B-树"><a href="#三、B-树" class="headerlink" title="三、B*树"></a>三、B*树</h1><p>B<em>树是B+树的变体，B</em>树在分支节点中增加了指向兄弟节点的指针。B<em>树定义了非叶子节点关键字个数至少要(2/3)</em>m个，即最低使用率2/3.<br><img src="https://img-blog.csdnimg.cn/20200301232141117.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>==B * 和B+的区别== :</p>
 <ol>
 <li><p>B*树分配新结点的概率比B+树要低，空间使用率要高。</p>
 </li>
@@ -563,7 +563,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

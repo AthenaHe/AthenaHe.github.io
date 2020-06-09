@@ -398,16 +398,16 @@
 
       
         <ol>
-<li><code>Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask. org.apache.hadoop.hive.ql.metadata.HiveException: Unable to move source file:</code><br><img src="https://img-blog.csdnimg.cn/20190331181838284.png" alt="在这里插入图片描述"></li>
+<li><code>Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask. org.apache.hadoop.hive.ql.metadata.HiveException: Unable to move source file:</code><br><img src="https://img-blog.csdnimg.cn/20190331181838284.png" alt="在这里插入图片描述" loading="lazy"></li>
 </ol>
 <p> <strong>解决：</strong><br>退出hive，关闭namenode和datanode，删除namenode的tmp目录，再重新启动<br> 2. 多表查询有聚合函数执行mapreduce出错：<br><code>FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
-MapReduce Jobs Launched:</code><br> <img src="https://img-blog.csdnimg.cn/2019033118202343.png" alt="在这里插入图片描述"><br><strong><em>待解决：</em></strong><br><code>hive&gt; set hive.exec.mode.local.auto=true;</code></p>
+MapReduce Jobs Launched:</code><br> <img src="https://img-blog.csdnimg.cn/2019033118202343.png" alt="在这里插入图片描述" loading="lazy"><br><strong><em>待解决：</em></strong><br><code>hive&gt; set hive.exec.mode.local.auto=true;</code></p>
 <ol start="3">
 <li>启动hive后，第二次同样的select语句会出错。<br><code>FAILED: Hive Internal Error: java.lang.IllegalArgumentException(The value of property yarn.resourcemanager.zk-address must not be null)
-java.lang.IllegalArgumentException: The value of property yarn.resourcemanager.zk-address must not be null</code><br><img src="https://img-blog.csdnimg.cn/20190331182046260.png" alt="在这里插入图片描述"><br><strong>解决：</strong><br>把yarn-site.xml中的yarn.resourcemanager.zk-address改为hadoop.zk.address<br>并重启hadoop。</li>
-<li><code>cannot recognize input near &#39;date&#39; &#39;string&#39; &#39;,&#39; in column specification</code><br><img src="https://img-blog.csdnimg.cn/20190331182107356.png" alt="在这里插入图片描述"><br><strong>解决：</strong><br>date为保留关键字，当字段名与关键字重名时。要加上反引号<br><img src="https://img-blog.csdnimg.cn/2019033118225126.png" alt="在这里插入图片描述">.</li>
-<li><code>Error: Could not open client transport with JDBC Uri: jdbc:hive2://192.168.1.101:10000: Failed to open new session: java.lang.RuntimeException: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.security.authorize.AuthorizationException): User: leon is not allowed to impersonate leon (state=08S01,code=0)</code><br><img src="https://img-blog.csdnimg.cn/20190331182319673.png" alt="在这里插入图片描述"><br><strong>解决：</strong><br>修改core-site.xml文件添加如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;hadoop.proxyuser.leon.hosts&lt;&#x2F;name&gt;</span><br><span class="line">    &lt;value&gt;*&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;hadoop.proxyuser.leon.groups&lt;&#x2F;name&gt;</span><br><span class="line">    &lt;value&gt;*&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br></pre></td></tr></table></figure>
-注意：hadoop.proxyuser.leon.hosts和hadoop.proxyuser.leon.groups中的leon是我的用户名，你要改成你的用户名<br><img src="https://img-blog.csdnimg.cn/20190331182337990.png" alt="在这里插入图片描述"></li>
+java.lang.IllegalArgumentException: The value of property yarn.resourcemanager.zk-address must not be null</code><br><img src="https://img-blog.csdnimg.cn/20190331182046260.png" alt="在这里插入图片描述" loading="lazy"><br><strong>解决：</strong><br>把yarn-site.xml中的yarn.resourcemanager.zk-address改为hadoop.zk.address<br>并重启hadoop。</li>
+<li><code>cannot recognize input near &#39;date&#39; &#39;string&#39; &#39;,&#39; in column specification</code><br><img src="https://img-blog.csdnimg.cn/20190331182107356.png" alt="在这里插入图片描述" loading="lazy"><br><strong>解决：</strong><br>date为保留关键字，当字段名与关键字重名时。要加上反引号<br><img src="https://img-blog.csdnimg.cn/2019033118225126.png" alt="在这里插入图片描述" loading="lazy">.</li>
+<li><code>Error: Could not open client transport with JDBC Uri: jdbc:hive2://192.168.1.101:10000: Failed to open new session: java.lang.RuntimeException: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.security.authorize.AuthorizationException): User: leon is not allowed to impersonate leon (state=08S01,code=0)</code><br><img src="https://img-blog.csdnimg.cn/20190331182319673.png" alt="在这里插入图片描述" loading="lazy"><br><strong>解决：</strong><br>修改core-site.xml文件添加如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;hadoop.proxyuser.leon.hosts&lt;&#x2F;name&gt;</span><br><span class="line">    &lt;value&gt;*&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;hadoop.proxyuser.leon.groups&lt;&#x2F;name&gt;</span><br><span class="line">    &lt;value&gt;*&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br></pre></td></tr></table></figure>
+注意：hadoop.proxyuser.leon.hosts和hadoop.proxyuser.leon.groups中的leon是我的用户名，你要改成你的用户名<br><img src="https://img-blog.csdnimg.cn/20190331182337990.png" alt="在这里插入图片描述" loading="lazy"></li>
 </ol>
 
       
@@ -538,7 +538,7 @@ java.lang.IllegalArgumentException: The value of property yarn.resourcemanager.z
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -397,14 +397,14 @@
         <h1 id="一、环境搭建"><a href="#一、环境搭建" class="headerlink" title="一、环境搭建"></a>一、环境搭建</h1><p>SpringBoot项目搭建</p>
 <ul>
 <li>访问 <a href="http://start.spring.io/" target="_blank" rel="noopener">http://start.spring.io/</a></li>
-<li>选择构建工具 Maven Project、Java、Spring Boot版本以及其它的信息。设置好之后，点击GENERATE下载项目压缩包。<br><img src="https://img-blog.csdnimg.cn/20200505094031293.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>选择构建工具 Maven Project、Java、Spring Boot版本以及其它的信息。设置好之后，点击GENERATE下载项目压缩包。<br><img src="https://img-blog.csdnimg.cn/20200505094031293.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
 <li>我使用的是Eclipse，可以File-&gt;Import-&gt;Existing Maven Project-&gt;next-&gt;选择解压后的文件夹-&gt;Finsh，成功导入到自己的工程中。</li>
-<li>导入之后可能会有红叉叉，pom.xml文件第一行出现Unknown错误，这个可能是maven插件和eclispe不兼容的原因（ps：也可以忽略，不影响整体运行）<img src="https://img-blog.csdnimg.cn/20200505100624425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样Spring Boot的环境就搭建好啦，是不是很简单。<h1 id="二、配置及分析"><a href="#二、配置及分析" class="headerlink" title="二、配置及分析"></a>二、配置及分析</h1>如上图所示：Spring boot的基础结构有三个文件目录：</li>
+<li>导入之后可能会有红叉叉，pom.xml文件第一行出现Unknown错误，这个可能是maven插件和eclispe不兼容的原因（ps：也可以忽略，不影响整体运行）<img src="https://img-blog.csdnimg.cn/20200505100624425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>这样Spring Boot的环境就搭建好啦，是不是很简单。<h1 id="二、配置及分析"><a href="#二、配置及分析" class="headerlink" title="二、配置及分析"></a>二、配置及分析</h1>如上图所示：Spring boot的基础结构有三个文件目录：</li>
 <li>src/main/java：程序开发以及主程序入口 </li>
 <li>src/main/resources：配置文件 </li>
-<li>src/test/java：测试程序<br>1）我们可以看到在src/main/java下有一个SchoolApplication.java文件，这是程序入口类SchoolApplication。在Springboot项目中我们可以通过main方法启动项目，在需要启动的主类中我们需要加入@SpringBootApplication这个注解，告诉spring boot，这个是程序的入口。<img src="https://img-blog.csdnimg.cn/20200505104735569.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>其中<br>  <code>@SpringBootApplication</code>是一个复合注解，包括<code>@ComponentScan</code>，<code>@SpringBootConfiguration</code>，<code>@EnableAutoConfiguration</code>。</li>
+<li>src/test/java：测试程序<br>1）我们可以看到在src/main/java下有一个SchoolApplication.java文件，这是程序入口类SchoolApplication。在Springboot项目中我们可以通过main方法启动项目，在需要启动的主类中我们需要加入@SpringBootApplication这个注解，告诉spring boot，这个是程序的入口。<img src="https://img-blog.csdnimg.cn/20200505104735569.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>其中<br>  <code>@SpringBootApplication</code>是一个复合注解，包括<code>@ComponentScan</code>，<code>@SpringBootConfiguration</code>，<code>@EnableAutoConfiguration</code>。</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/20200505105303605.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200505105303605.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNDU2NjYwNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
 <blockquote>
 <ul>
 <li><strong>@SpringBootConfiguration</strong>继承自@Configuration，二者功能也一致，标注当前类是配置类，并会将当前类内声明的一个或多个以@Bean注解标记的方法的实例纳入到srping容器中，并且实例名就是方法名。</li>
@@ -564,7 +564,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
